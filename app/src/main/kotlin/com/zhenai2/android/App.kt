@@ -28,6 +28,10 @@ class App : Application() {
         super.onCreate()
         instance = this
 
+        // 0. 闪退日志采集 —— 最先安装,确保后续初始化任何崩溃都能记录
+        //    写入 /sdcard/douyinguanjia/Log/zhenai2.log
+        CrashHandler.get().install(this)
+
         // 1. 账号管理初始化(对应原 App Cookie: sid/token)
         AccountManager.init(this)
 

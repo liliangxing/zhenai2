@@ -49,7 +49,7 @@ class LoginViewModel : BaseViewModel() {
     fun loadConfig() {
         launch(onError = { it.printStackTrace() }) {
             // 对应 login.js mounted: kr("/system/getConfigureInfo.do")
-            val config = request { api.getConfigureInfo() }
+            val config = api.getConfigureInfo().takeIf { !it.isError }?.data
             config?.let {
                 _loginConfig.value = it
                 if (it.useVerifyCode && !it.useTxCode) {
@@ -57,7 +57,7 @@ class LoginViewModel : BaseViewModel() {
                 }
             }
             // 对应 login.js: Fr("/login/getGeetestCaptcha.do")
-            val captcha = request { api.getGeetestCaptcha() }
+            val captcha = api.getGeetestCaptcha().takeIf { !it.isError }?.data
             captcha?.let { _captchaConfig.value = it }
         }
     }

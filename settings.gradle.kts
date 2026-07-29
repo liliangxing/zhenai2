@@ -3,7 +3,10 @@
 
 pluginManagement {
     repositories {
-        // curl 实测直连 Google Maven 稳定(20MB/s),国内镜像反而在沙箱内 SYN 挂起
+        // 优先使用阿里云镜像(沙箱内稳定),Google/中央仓库作兜底
+        maven { url = uri("https://maven.aliyun.com/repository/google") }
+        maven { url = uri("https://maven.aliyun.com/repository/central") }
+        maven { url = uri("https://maven.aliyun.com/repository/gradle-plugin") }
         google()
         mavenCentral()
         gradlePluginPortal()
@@ -13,6 +16,8 @@ pluginManagement {
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
     repositories {
+        maven { url = uri("https://maven.aliyun.com/repository/google") }
+        maven { url = uri("https://maven.aliyun.com/repository/central") }
         google()
         mavenCentral()
         maven { url = uri("https://jitpack.io") }

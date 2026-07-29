@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<com.zhenai.live_common.gift.widget.ScaleWidget xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="@dimen/dimen_90dp"
-    android:layout_height="@dimen/dimen_90dp"
-    android:scaleType="fitCenter"/>

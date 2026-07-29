@@ -8,7 +8,7 @@ import com.google.gson.annotations.SerializedName
  * 实测确认来源: GET https://www.zhenai.com/api/login/getGeetestCaptcha.do
  * 返回: {"data":"","errorCode":"","errorMessage":"","isError":false}
  *
- * 所有 /api/*.do 接口统一此结构。
+ * 所有 /api/ 下的 .do 接口统一此结构。
  */
 data class ApiResponse<T>(
     @SerializedName("isError") val isError: Boolean = false,

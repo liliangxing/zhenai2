@@ -10,5 +10,27 @@ plugins {
 
 // 所有子模块公共配置
 subprojects {
-    // 各模块 build.gradle.kts 内自行配置 android {} 与 dependencies
+    // ARouter 编译器需要 AROUTER_MODULE_NAME 参数,统一注入到所有 Android 模块
+    plugins.withId("com.android.library") {
+        extensions.configure<com.android.build.gradle.LibraryExtension>("android") {
+            defaultConfig {
+                javaCompileOptions {
+                    annotationProcessorOptions {
+                        arguments += mapOf("AROUTER_MODULE_NAME" to project.name)
+                    }
+                }
+            }
+        }
+    }
+    plugins.withId("com.android.application") {
+        extensions.configure<com.android.build.gradle.AppExtension>("android") {
+            defaultConfig {
+                javaCompileOptions {
+                    annotationProcessorOptions {
+                        arguments += mapOf("AROUTER_MODULE_NAME" to project.name)
+                    }
+                }
+            }
+        }
+    }
 }

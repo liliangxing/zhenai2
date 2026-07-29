@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    android:versionCode="20260723"
-    android:versionName="9.29.5"
-    android:compileSdkVersion="33"
-    android:compileSdkVersionCodename="13"
-    package="com.zhenai2.android"
-    platformBuildVersionCode="33"
-    platformBuildVersionName="13">
+    xmlns:tools="http://schemas.android.com/tools">
     <uses-sdk
-        android:minSdkVersion="24"
-        android:targetSdkVersion="33"/>
+        android:minSdkVersion="23"
+        android:targetSdkVersion="34"/>
     <uses-feature
         android:name="android.hardware.camera.any"
         android:required="false"/>
@@ -206,7 +200,8 @@
         android:networkSecurityConfig="@xml/http_network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-        android:requestLegacyExternalStorage="true">
+        android:requestLegacyExternalStorage="true"
+        tools:replace="android:appComponentFactory">
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false"/>

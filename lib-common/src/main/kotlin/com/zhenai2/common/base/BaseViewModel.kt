@@ -2,12 +2,14 @@ package com.zhenai2.common.base
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.zhenai2.network.ApiResponse
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 
 /**
  * ViewModel 基类 —— 统一协程异常处理。
+ *
+ * 注意: 本类位于 lib-common,不能直接依赖 lib-network(会形成循环依赖),
+ *      因此 request 用泛型 lambda 解耦,由子类自行处理 ApiResponse。
  */
 abstract class BaseViewModel : ViewModel() {
 
@@ -19,12 +21,19 @@ abstract class BaseViewModel : ViewModel() {
         viewModelScope.launch(handler) { block() }
     }
 
-    /** 统一请求封装: 处理 isError/errorCode,返回 data 或 null */
+    /**
+     * 统一请求封装: 执行 [api],异常或返回 null 视为失败,调用 [onError]。
+     * 子类可自行包装 ApiResponse -> data 的提取逻辑后传入。
+     */
     protected suspend fun <T> request(
-        api: suspend () -> ApiResponse<T>,
-        onError: (ApiResponse<T>) -> Unit = {}
+        api: suspend () -> T?,
+        onError: (Throwable?) -> Unit = {}
     ): T? {
-        val resp = try { api() } catch (e: Exception) { return null }
-        return if (resp.isError) { onError(resp); null } else resp.data
+        return try {
+            val result = api()
+            if (result == null) { onError(null); null } else result
+        } catch (e: Exception) {
+            onError(e); null
+        }
     }
 }

@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<MotionScene xmlns:app="http://schemas.android.com/apk/res-auto">
-    <Transition
-        app:constraintSetEnd="@layout/layout_go_back_to_previous_live_room_scene4"
-        app:constraintSetStart="@layout/layout_go_back_to_previous_live_room_scene3"
-        app:duration="500"
-        app:motionInterpolator="easeInOut"/>
-</MotionScene>

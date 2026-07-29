@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@drawable/bg_rectangle_ffffff_16r_shape"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginTop="@dimen/viewpager2_pageMarginAndOffset"
-    android:layout_marginBottom="@dimen/viewpager2_pageMarginAndOffset"
-    android:layout_marginVertical="@dimen/viewpager2_pageMarginAndOffset"/>

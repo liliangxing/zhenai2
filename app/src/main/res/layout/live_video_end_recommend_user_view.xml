@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.zhenai.business.widget.progress.CircleProgressBar
+        android:id="@+id/pb_recommend_user"
+        android:layout_width="63dp"
+        android:layout_height="63dp"
+        app:circleColor="#4d000000"
+        app:circleProgressColor="#ffdb8bff"
+        app:circleWidth="3dp"
+        app:shapeType="STROKE"
+        app:textIsDisplayable="false"/>
+    <com.zhenai.common.widget.RoundImageView
+        android:id="@+id/iv_recommend_user_avatar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="6dp"
+        android:layout_alignTop="@+id/pb_recommend_user"
+        android:layout_alignBottom="@+id/pb_recommend_user"
+        android:layout_alignStart="@+id/pb_recommend_user"
+        android:layout_alignEnd="@+id/pb_recommend_user"
+        app:roundImageType="circle"/>
+    <TextView
+        android:textSize="12sp"
+        android:textColor="@color/white"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:id="@+id/tv_recommend_user_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:maxLines="1"
+        android:layout_below="@+id/pb_recommend_user"/>
+</merge>

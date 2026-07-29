@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="75dp"
+    android:layout_height="75dp">
+    <com.zhenai.common.widget.RoundImageView
+        android:id="@+id/paster_item_stroke"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@color/white"
+        app:roundImageType="circle"/>
+    <ImageView
+        android:id="@+id/paster_item_iv"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="3dp"
+        android:scaleType="fitCenter"/>
+    <ImageView
+        android:id="@+id/music_icon_iv"
+        android:visibility="gone"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginBottom="2dp"
+        android:src="@drawable/sv_dress_music_circle_v8"
+        android:layout_marginEnd="2dp"
+        app:layout_constraintBottom_toBottomOf="@+id/paster_item_stroke"
+        app:layout_constraintEnd_toEndOf="@+id/paster_item_stroke"/>
+    <FrameLayout
+        android:id="@+id/more_item_layout"
+        android:background="@drawable/short_video_more_shape_v8"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:textSize="11sp"
+            android:textColor="@color/white"
+            android:gravity="center_horizontal"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/more"
+            android:drawableTop="@drawable/sv_icon_dress_more"
+            android:drawablePadding="2dp"/>
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

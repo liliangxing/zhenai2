@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/img_privilege"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+        android:textSize="12sp"
+        android:textColor="#ff7e5119"
+        android:gravity="center"
+        android:id="@+id/tv_zi_liao_vip_used"
+        android:background="@drawable/bg_fbe3b3_f0cf999e_rectangle_shape"
+        android:layout_width="80dp"
+        android:layout_height="24dp"
+        android:text="使用中"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

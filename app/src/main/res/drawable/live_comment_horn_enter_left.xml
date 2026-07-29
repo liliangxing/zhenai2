@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="@color/color_a46ff5"
+                android:endColor="#8661f6"
+                android:angle="0"/>
+            <corners
+                android:topLeftRadius="@dimen/dimen_3dp"
+                android:bottomLeftRadius="@dimen/dimen_3dp"/>
+        </shape>
+    </item>
+    <item>
+        <bitmap
+            android:gravity="center"
+            android:src="@drawable/icon_live_horn_comment"
+            android:tileMode="disabled"/>
+    </item>
+</layer-list>

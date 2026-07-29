@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bg_rectangle_ffffff_16r_shape"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="@dimen/dimen_12dp"
+    android:layout_marginTop="@dimen/viewpager2_pageMarginAndOffset"
+    android:layout_marginRight="@dimen/dimen_12dp"
+    android:layout_marginBottom="@dimen/viewpager2_pageMarginAndOffset"
+    android:layout_marginHorizontal="@dimen/dimen_12dp"
+    android:layout_marginVertical="@dimen/viewpager2_pageMarginAndOffset">
+    <ProgressBar
+        android:id="@+id/search_progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="vertical"
+        android:id="@+id/retry_layout"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/load_fail_img_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/search_empty"/>
+        <TextView
+            android:textSize="14sp"
+            android:textColor="@color/color_6C6D75"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/search_retry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/net_word_error"
+            android:lineSpacingExtra="5dp"/>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

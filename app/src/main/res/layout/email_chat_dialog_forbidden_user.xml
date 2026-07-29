@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:id="@+id/layout_getting_data_fail_root_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.zhenai.business.widget.GettingDataFailDefaultView
+        android:id="@+id/layout_getting_data_fail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="37dp"
+        app:text="@string/user_forbidden_default_content"
+        app:text_margin_left_and_right="41dp"
+        app:text_margin_top="35dp"/>
+    <View
+        android:id="@+id/spaceLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+</LinearLayout>

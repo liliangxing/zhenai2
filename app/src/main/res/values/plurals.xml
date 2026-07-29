@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="error_over_count">
+        <item quantity="one">可以选择的文件数不超过 %1$d 个</item>
+        <item quantity="few">可以选择的文件数不超过 %1$d 个</item>
+        <item quantity="many">可以选择的文件数不超过 %1$d 个</item>
+        <item quantity="other">可以选择的文件数不超过 %1$d 个</item>
+    </plurals>
+    <plurals name="mtrl_badge_content_description">
+        <item quantity="one">%d new notification</item>
+        <item quantity="other">%d new notifications</item>
+    </plurals>
+</resources>

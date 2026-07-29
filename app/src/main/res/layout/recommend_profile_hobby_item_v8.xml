@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/dp16">
+    <TextView
+        android:textSize="@dimen/dimen_16sp"
+        android:textColor="@color/color_191a26"
+        android:ellipsize="end"
+        android:id="@+id/tv_hobby_title"
+        android:layout_width="@dimen/dp130"
+        android:layout_height="wrap_content"
+        android:maxWidth="@dimen/dp130"
+        android:maxLines="1"
+        android:layout_marginEnd="@dimen/dimen_10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+        android:textSize="@dimen/dimen_16sp"
+        android:textColor="@color/color_6c6d75"
+        android:layout_gravity="center_vertical"
+        android:id="@+id/tv_hobby_content"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp15"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_hobby_title"
+        app:layout_constraintTop_toTopOf="@+id/tv_hobby_title"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

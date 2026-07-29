@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_chat_say_hi"
+    android:background="@drawable/common_middle_stroke_btn_selector"
+    android:visibility="gone"
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:layout_marginLeft="27.5dp"
+    android:layout_marginTop="4.5dp"
+    android:layout_marginRight="27.5dp"
+    android:layout_marginBottom="15dp">
+    <TextView
+        android:textSize="14sp"
+        android:textColor="#42475c"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/say_hi"
+        android:drawableLeft="@drawable/chat_say_hi_icon"/>
+</FrameLayout>

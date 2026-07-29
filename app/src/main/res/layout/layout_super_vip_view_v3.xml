@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhenai.mine.mine.widget.SuperVipViewV3 xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_super_vip_entrance"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <FrameLayout
+        android:id="@+id/iv_super_vip_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:layout_gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ViewFlipper
+            android:layout_gravity="center_vertical"
+            android:id="@+id/view_flipper"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            android:minHeight="44dp"
+            android:inAnimation="@anim/svip_entrance_anim_in"
+            android:outAnimation="@anim/svip_entrance_anim_out"
+            android:layout_weight="1"
+            android:autoStart="true"
+            android:layout_marginVertical="2dp"/>
+        <ImageView
+            android:layout_gravity="center"
+            android:id="@+id/btn_action_iv"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="10dp"/>
+    </LinearLayout>
+</com.zhenai.mine.mine.widget.SuperVipViewV3>

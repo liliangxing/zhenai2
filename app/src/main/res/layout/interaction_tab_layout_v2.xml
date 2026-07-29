@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.zhenai.lib.zaui.tablayout.ZTabLayout
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/tab_layout"
+        android:paddingTop="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:zIndicatorColorOrientation="left_right"
+        app:zIndicatorCornerRadius="2dp"
+        app:zIndicatorEndColor="@color/white"
+        app:zIndicatorEqualTitle="true"
+        app:zIndicatorHeight="3dp"
+        app:zIndicatorScrollScale="true"
+        app:zIndicatorStartColor="@color/white"
+        app:zSelectedTextColor="@color/white"
+        app:zSelectedTextSize="16sp"
+        app:zTabMode="fixed"
+        app:zUnSelectedTextColor="@color/semitransparent_white"
+        app:zUnSelectedTextSize="16sp"/>
+</RelativeLayout>

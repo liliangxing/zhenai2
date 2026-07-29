@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <com.zhenai.common.widget.BoldTextView
+        android:textSize="@dimen/dimen_18sp"
+        android:textColor="@color/color_26273C"
+        android:id="@+id/basic_search_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="高级搜索"/>
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:orientation="vertical"
+        android:id="@+id/high_level_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"/>
+</merge>

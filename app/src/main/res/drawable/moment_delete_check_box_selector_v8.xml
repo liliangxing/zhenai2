@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_checked="true">
+        <bitmap
+            android:gravity="center"
+            android:src="@drawable/icon_moment_delete_check_box_checked_v8"
+            android:tileMode="disabled"/>
+    </item>
+    <item android:state_checked="false">
+        <bitmap
+            android:gravity="center"
+            android:src="@drawable/icon_moment_check_box_unchecked_v8"
+            android:tileMode="disabled"/>
+    </item>
+</selector>

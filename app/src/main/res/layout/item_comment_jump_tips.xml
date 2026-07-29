@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:gravity="top|center_horizontal"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:textSize="14sp"
+        android:textColor="@color/color_6c6d75"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="多发动态，可收获更多评论哦"/>
+    <TextView
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:id="@+id/jump_2_moment"
+        android:background="@drawable/bg_rectangle_767dff_40r_shape"
+        android:layout_width="231dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/jump_2_send_moments"/>
+    <androidx.legacy.widget.Space
+        android:layout_width="0dp"
+        android:layout_height="40dp"/>
+</androidx.appcompat.widget.LinearLayoutCompat>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#fffddfb5"
+    android:layout_width="match_parent"
+    android:layout_height="44dp">
+    <TextView
+        android:textSize="13sp"
+        android:textColor="#e39a4d"
+        android:gravity="center_vertical"
+        android:id="@+id/tv_content"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="@string/become_super_vip_freely_chat_banner"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_toStartOf="@+id/btn_use"/>
+    <TextView
+        android:textSize="13sp"
+        android:textColor="#e39a4d"
+        android:gravity="center_vertical"
+        android:id="@+id/btn_use"
+        android:background="@drawable/bg_freely_chat_banner_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/enjoy_freely_chat"
+        android:drawableEnd="@drawable/icon_freely_chat_banner_btn"
+        android:paddingStart="17dp"
+        android:paddingEnd="14dp"
+        android:layout_alignParentEnd="true"/>
+</RelativeLayout>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/iv_live_video_live_list_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:src="@drawable/icon_live_video_live_list_empty"/>
+    <TextView
+        android:textSize="15sp"
+        android:textColor="#909090"
+        android:gravity="center"
+        android:id="@+id/tv_live_video_live_list_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="开个直播，我们来一次真诚的邂逅吧"
+        android:lineSpacingExtra="3dp"/>
+</LinearLayout>

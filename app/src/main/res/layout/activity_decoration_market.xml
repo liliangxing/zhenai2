@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.zhenai.lib.zaui.tablayout.ZTabLayout
+        android:id="@+id/tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        app:zIndicatorCornerRadius="2dp"
+        app:zIndicatorEndColor="@color/color_7a00ff"
+        app:zIndicatorHeight="4dp"
+        app:zIndicatorMarginBottom="6dp"
+        app:zIndicatorScrollScale="true"
+        app:zIndicatorStartColor="@color/color_ff5694"
+        app:zIndicatorWidth="22dp"
+        app:zSelectedTextColor="@color/color_42475c"
+        app:zSelectedTextSize="23sp"
+        app:zTabMode="scrollable"
+        app:zTabPaddingLeft="12dp"
+        app:zTabPaddingRight="10dp"
+        app:zTextBold="text_bold_both"
+        app:zUnSelectedTextColor="@color/color_666978"
+        app:zUnSelectedTextSize="15sp"/>
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tab_layout"/>
+    <com.zhenai.live.decorate.widget.MarketAdviceView
+        android:id="@+id/market_advice_view"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="31dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"/>
+</RelativeLayout>

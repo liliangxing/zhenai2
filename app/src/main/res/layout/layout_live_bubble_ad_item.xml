@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <com.zhenai.common.widget.RadioImageView
+        android:id="@+id/iv_live_bubble_ad"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:scaleType="fitCenter"
+        app:height_weight="216"
+        app:width_weight="180"/>
+    <com.opensource.svgaplayer.SVGAImageView
+        android:id="@+id/svga_player"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"/>
+</FrameLayout>

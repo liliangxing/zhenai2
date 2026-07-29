@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:paddingTop="15dp"
+    android:paddingBottom="15dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:id="@+id/select_topic_layout"
+        android:background="@drawable/bg_moment_publish_topic_select_shape"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginStart="28dp">
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@drawable/icon_moment_topic_selected"/>
+        <TextView
+            android:textColor="#767dff"
+            android:id="@+id/select_topic_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"/>
+        <ImageView
+            android:id="@+id/topic_remove_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_moment_topic_remove"/>
+    </LinearLayout>
+    <com.zhenai.business.moments.widget.MomentsTextEditLayout
+        android:id="@+id/moment_text_edit_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="29dp"
+        android:layout_marginEnd="28dp"/>
+</LinearLayout>

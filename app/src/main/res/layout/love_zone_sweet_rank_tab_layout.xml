@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.google.android.material.tabs.TabLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/tabs1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:tabBackground="@drawable/love_zone_sweet_rank_view_pager_tab_0_shape"
+        app:tabContentStart="0dp"
+        app:tabGravity="fill"
+        app:tabIndicatorHeight="0dp"
+        app:tabMaxWidth="500dp"
+        app:tabMinWidth="500dp"
+        app:tabPadding="0dp"
+        app:tabSelectedTextColor="@color/white"
+        app:tabTextColor="@color/white"/>
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabs2"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:tabBackground="@drawable/love_zone_sweet_rank_view_pager_tab_1_shape"
+        app:tabContentStart="0dp"
+        app:tabGravity="fill"
+        app:tabIndicatorHeight="0dp"
+        app:tabMaxWidth="500dp"
+        app:tabMinWidth="500dp"
+        app:tabPadding="0dp"
+        app:tabSelectedTextColor="@color/white"
+        app:tabTextColor="@color/white"/>
+</FrameLayout>

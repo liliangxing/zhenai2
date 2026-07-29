@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bg_ffffff_top_radius_30"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="#6c6d75"
+        android:id="@+id/tv_mutual_like_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="最近相互喜欢"
+        android:layout_marginStart="@dimen/dimen_12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <ImageView
+        android:id="@+id/img_mutual_like_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icon_message_list_like_each_other_question"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_mutual_like_title"
+        app:layout_constraintStart_toEndOf="@+id/tv_mutual_like_title"
+        app:layout_constraintTop_toTopOf="@+id/tv_mutual_like_title"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_mutual_like"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="@dimen/dimen_5dp"
+        android:layout_marginEnd="@dimen/dimen_5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_mutual_like_title"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

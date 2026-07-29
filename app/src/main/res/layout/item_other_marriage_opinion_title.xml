@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <me.yintaibing.universaldrawable.view.UniversalDrawableTextView
+        android:textColor="@color/color_26273C"
+        android:gravity="center_vertical"
+        android:id="@+id/tv_marriage_opinion_common"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp27"
+        android:drawablePadding="@dimen/dp4"
+        android:drawableStart="@drawable/ic_opinion"
+        android:paddingStart="@dimen/dp5"
+        android:paddingEnd="@dimen/dp15"
+        app:bg_colorNormal="@color/color_ebecff"
+        app:bg_fillMode="color"
+        app:bg_radius="@dimen/dp13"
+        app:bg_shape="round"/>
+</FrameLayout>

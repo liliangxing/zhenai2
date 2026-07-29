@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:textSize="16sp"
+        android:textColor="@color/color_26273c"
+        android:id="@+id/quick_guide_item_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:layout_marginStart="16dp"/>
+    <com.zhenai.business.widget.label_layout.LabelLayout
+        android:id="@+id/quick_guide_item_details"
+        android:paddingBottom="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        app:auto_select_effect="true"
+        app:max_select="1"
+        app:un_select_enable="false"/>
+</LinearLayout>

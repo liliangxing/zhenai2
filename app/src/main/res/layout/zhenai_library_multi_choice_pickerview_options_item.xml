@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp">
+        <TextView
+            android:textSize="15sp"
+            android:textColor="#666978"
+            android:gravity="center_vertical"
+            android:id="@+id/tvTitle"
+            android:paddingLeft="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+        <CheckBox
+            android:layout_gravity="center"
+            android:id="@+id/checkBox"
+            android:background="@drawable/pay_check_btn"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:clickable="false"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:checked="false"
+            android:button="@null"/>
+    </FrameLayout>
+    <View
+        android:background="#eaeaea"
+        android:paddingLeft="18dp"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"/>
+</LinearLayout>

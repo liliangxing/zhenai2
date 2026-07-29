@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@android:id/background">
+        <shape>
+            <corners android:radius="1dp"/>
+            <gradient
+                android:startColor="#ebebeb"
+                android:endColor="#ebebeb"
+                android:angle="270"
+                android:centerY="0.75"
+                android:centerColor="#ebebeb"/>
+        </shape>
+    </item>
+    <item android:id="@android:id/secondaryProgress">
+        <clip>
+            <shape>
+                <corners android:radius="1dp"/>
+                <gradient
+                    android:startColor="#ffdfdfdf"
+                    android:endColor="#ffdfdfdf"
+                    android:angle="270"
+                    android:centerY="0.75"
+                    android:centerColor="#ffdfdfdf"/>
+            </shape>
+        </clip>
+    </item>
+    <item android:id="@android:id/progress">
+        <clip>
+            <shape>
+                <corners android:radius="1dp"/>
+                <gradient
+                    android:startColor="@color/color_8b76f9"
+                    android:endColor="@color/color_8b76f9"
+                    android:angle="270"
+                    android:centerY="0.75"
+                    android:centerColor="@color/color_8b76f9"/>
+            </shape>
+        </clip>
+    </item>
+</layer-list>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:paddingBottom="@dimen/dp8"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingEnd="@dimen/dp8">
+    <TextView
+        android:textSize="14sp"
+        android:textColor="@color/color_6c6d75"
+        android:gravity="center"
+        android:id="@+id/hobby_content"
+        android:background="@drawable/shape_6c6d75_stroke_radius8_bg"
+        android:padding="8dp"
+        android:visibility="visible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

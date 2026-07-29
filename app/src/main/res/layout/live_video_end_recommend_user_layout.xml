@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.zhenai.live.widget.EndRecommendUserView
+        android:id="@+id/user_view_1"
+        android:visibility="invisible"
+        android:layout_width="59dp"
+        android:layout_height="wrap_content"/>
+    <android.widget.Space
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
+    <com.zhenai.live.widget.EndRecommendUserView
+        android:id="@+id/user_view_2"
+        android:visibility="invisible"
+        android:layout_width="59dp"
+        android:layout_height="wrap_content"/>
+    <android.widget.Space
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
+    <com.zhenai.live.widget.EndRecommendUserView
+        android:id="@+id/user_view_3"
+        android:visibility="invisible"
+        android:layout_width="59dp"
+        android:layout_height="wrap_content"/>
+    <android.widget.Space
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
+    <com.zhenai.live.widget.EndRecommendUserView
+        android:id="@+id/user_view_4"
+        android:visibility="invisible"
+        android:layout_width="59dp"
+        android:layout_height="wrap_content"/>
+</merge>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#ffffff"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/ivSearchAni"
+        android:layout_width="104dp"
+        android:layout_height="104dp"
+        android:layout_marginTop="101dp"
+        android:src="@drawable/ic_mail_search_filter"
+        android:layout_centerHorizontal="true"/>
+    <TextView
+        android:textSize="15sp"
+        android:textColor="#ff666978"
+        android:id="@+id/tvSearchTip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
+        android:text="正在筛选符合你条件的用户..."
+        android:layout_below="@+id/ivSearchAni"
+        android:layout_centerHorizontal="true"/>
+    <TextView
+        android:textSize="15sp"
+        android:textColor="#ffffff"
+        android:gravity="center"
+        android:id="@+id/tvOk"
+        android:background="@drawable/dialog_live_video_pay_bg"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="20dp"
+        android:text="确定"
+        android:layout_below="@+id/tvSearchTip"/>
+</merge>

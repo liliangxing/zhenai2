@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:state_checked="true"
+        android:drawable="@drawable/icon_identification_bg_cb_show_school_checked"/>
+    <item
+        android:state_checked="false"
+        android:drawable="@drawable/identification_bg_cb_show_school_unchecked"/>
+    <item android:drawable="@drawable/identification_bg_cb_show_school_unchecked"/>
+</selector>

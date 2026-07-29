@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhenai.live.widget.MarriageValueLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/layout_live_video_marriage_value_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textSize="11sp"
+            android:textColor="@color/white"
+            android:gravity="bottom"
+            android:id="@+id/tv_marriage_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/marriage_value"/>
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <com.zhenai.common.widget.RollingNumberView
+                android:id="@+id/rolling_number_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                app:rollingNumber_rollingUnit="2dp"
+                app:rollingNumber_textColor="@color/white"
+                app:rollingNumber_textSize="11sp"/>
+            <ImageView
+                android:id="@+id/iv_marriage_arrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_live_video_zhenxin_value_arrow"
+                android:layout_marginStart="2dp"/>
+        </LinearLayout>
+    </LinearLayout>
+</com.zhenai.live.widget.MarriageValueLayout>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottie_red_packet"
+        android:layout_width="80dp"
+        android:layout_height="76dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="animation/red_packet_anim.json"
+        app:lottie_imageAssetsFolder="images/live_red_packet"
+        app:lottie_loop="true"/>
+    <ImageView
+        android:id="@+id/delete_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_5dp"
+        android:src="@drawable/red_packet_close"
+        android:layout_marginStart="70dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <com.zhenai.common.widget.MarqueeText
+        android:textSize="@dimen/dimen_10sp"
+        android:textColor="#ffffffff"
+        android:ellipsize="marquee"
+        android:gravity="center"
+        android:id="@+id/tv_rank"
+        android:background="@drawable/shape_red_bg_radius4_bg"
+        android:paddingTop="@dimen/dimen_2dp"
+        android:paddingBottom="@dimen/dimen_2dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:layout_width="45dp"
+        android:layout_height="wrap_content"
+        android:text="--"
+        android:scrollHorizontally="true"
+        android:singleLine="true"
+        android:marqueeRepeatLimit="marquee_forever"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lottie_red_packet"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:textSize="14sp"
+    android:textColor="@color/color_26273C"
+    android:id="@+id/tv_content_1"
+    android:background="@drawable/bg_interactive_daily_page2_content"
+    android:paddingLeft="21dp"
+    android:paddingTop="10dp"
+    android:paddingRight="21dp"
+    android:paddingBottom="22dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="32dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginRight="32dp"
+    android:layout_marginHorizontal="32dp"
+    android:paddingHorizontal="21dp"/>

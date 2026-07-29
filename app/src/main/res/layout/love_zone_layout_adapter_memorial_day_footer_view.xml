@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:gravity="center"
+    android:layout_gravity="center"
+    android:id="@+id/binding_to_memorial_layout"
+    android:padding="11dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="19dp"
+    android:layout_marginBottom="13dp">
+    <TextView
+        android:textSize="13sp"
+        android:textColor="#818181"
+        android:id="@+id/binding_to_memorial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <ImageView
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_marginLeft="10dp"
+        android:src="@drawable/icon_secret_chat_live_list_entrance_arrow"/>
+</LinearLayout>

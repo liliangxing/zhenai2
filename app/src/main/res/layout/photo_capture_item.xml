@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhenai.album.internal.ui.widget.SquareFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="?attr/res_0x7f0402d6_item_placeholder"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:foreground="?attr/selectableItemBackground">
+    <TextView
+        android:textSize="14sp"
+        android:textColor="?attr/res_0x7f0400e8_capture_textcolor"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:id="@+id/hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/photo_grid_capture"
+        android:drawableTop="@drawable/ic_photo_camera_white_24dp"
+        android:drawablePadding="8dp"/>
+</com.zhenai.album.internal.ui.widget.SquareFrameLayout>

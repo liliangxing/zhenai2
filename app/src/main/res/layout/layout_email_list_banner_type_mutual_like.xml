@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/image_banner"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"/>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="65dp"
+        android:layout_marginBottom="@dimen/dimen_20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <ImageView
+            android:id="@+id/image_self_header"
+            android:background="@drawable/circle_white_shape"
+            android:padding="@dimen/dimen_3dp"
+            android:layout_width="67dp"
+            android:layout_height="67dp"
+            android:src="@drawable/default_circle_avatar"
+            android:scaleType="fitXY"
+            android:layout_marginEnd="@dimen/dimen_20dp"/>
+        <ImageView
+            android:id="@+id/image_other_header"
+            android:background="@drawable/circle_white_shape"
+            android:padding="@dimen/dimen_3dp"
+            android:layout_width="67dp"
+            android:layout_height="67dp"
+            android:src="@drawable/default_circle_avatar"
+            android:scaleType="fitXY"
+            android:layout_toRightOf="@+id/image_self_header"/>
+        <com.opensource.svgaplayer.SVGAImageView
+            android:id="@+id/svga_player"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerInParent="true"
+            app:antiAlias="true"
+            app:autoPlay="true"
+            app:source="banner_receive_email.svga"/>
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

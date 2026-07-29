@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:id="@+id/marquee_layout_view"
+    android:visibility="gone"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:src="@drawable/message_icon"
+        android:scaleType="center"/>
+    <com.zhenai.common.widget.marquee.MarqueeLayout
+        android:id="@+id/marquee_layout"
+        android:background="@color/translucent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        app:enableAlphaAnim="true"
+        app:enableScaleAnim="false"
+        app:orientation="vertical"
+        app:switchTime="5000"/>
+</LinearLayout>

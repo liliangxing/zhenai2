@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:textSize="14sp"
+    android:textColor="@color/white"
+    android:gravity="center"
+    android:layout_gravity="center"
+    android:id="@+id/tv_content"
+    android:background="@drawable/bg_live_say_hi_guide_text"
+    android:layout_width="wrap_content"
+    android:layout_height="24dp"
+    android:lines="1"
+    android:paddingStart="12dp"
+    android:paddingEnd="12dp"/>

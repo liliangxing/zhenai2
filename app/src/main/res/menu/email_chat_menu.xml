@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_view"
+        android:title="@string/view_this_man"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/menu_block_or_not"
+        android:title="@string/block_this_man"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/menu_report"
+        android:title="@string/block_and_report_this_man"
+        app:showAsAction="never"/>
+</menu>

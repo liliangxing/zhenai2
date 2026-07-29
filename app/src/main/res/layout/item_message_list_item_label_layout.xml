@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<me.yintaibing.universaldrawable.view.UniversalDrawableTextView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:textSize="@dimen/dimen_11sp"
+    android:textColor="@color/color_9395A4"
+    android:ellipsize="end"
+    android:gravity="center"
+    android:paddingLeft="@dimen/dimen_4dp"
+    android:paddingRight="@dimen/dimen_4dp"
+    android:layout_width="wrap_content"
+    android:layout_height="18dp"
+    android:lines="1"
+    android:maxEms="7"
+    android:paddingHorizontal="@dimen/dimen_4dp"
+    app:bg_colorNormal="#f2f4f5"
+    app:bg_fillMode="color"
+    app:bg_radius="@dimen/dp4"
+    app:bg_shape="round"/>

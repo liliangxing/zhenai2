@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <stroke
+                android:width="@dimen/divider_size"
+                android:color="#ff979797"
+                android:dashWidth="4dp"
+                android:dashGap="4dp"/>
+        </shape>
+    </item>
+    <item
+        android:drawable="@drawable/ic_add"
+        android:left="23dp"
+        android:top="23dp"
+        android:right="23dp"
+        android:bottom="23dp"/>
+</layer-list>

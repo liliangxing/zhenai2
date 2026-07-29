@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:id="@+id/rootEmptyLayout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/topImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:textSize="@dimen/dimen_14sp"
+        android:textColor="@color/white_60"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/emptyTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_4dp"/>
+    <TextView
+        android:textSize="@dimen/dimen_13sp"
+        android:textColor="@color/color_767dff"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/emptySubTitle"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_8dp"
+        android:text="@string/about_guard"
+        android:drawablePadding="@dimen/dimen_4dp"
+        android:drawableEnd="@drawable/icon_arrow_right"
+        android:drawableTint="@color/color_767dff"/>
+</LinearLayout>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/color_18171f"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:textSize="@dimen/dimen_14sp"
+        android:textColor="@color/color_translucent_white"
+        android:gravity="center"
+        android:id="@+id/tv_loading"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp240"
+        android:text="@string/loading_data_msg"
+        app:layout_constraintTop_toBottomOf="@+id/view_send_gift_background"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_content"
+        android:paddingTop="@dimen/dimen_10dp"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp240"
+        android:paddingStart="@dimen/decoration_rv_padding"
+        android:paddingEnd="@dimen/decoration_rv_padding"
+        app:layout_constraintTop_toBottomOf="@+id/tv_loading"/>
+</merge>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_gravity="center"
+    android:id="@+id/subRoot"
+    android:paddingBottom="15dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true">
+    <ImageView
+        android:id="@+id/ivHeader"
+        android:layout_width="84dp"
+        android:layout_height="84dp"
+        android:src="@drawable/default_circle_avatar"
+        android:layout_centerHorizontal="true"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+    <TextView
+        android:textSize="16sp"
+        android:textColor="#ff6c6d75"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:lines="1"
+        android:ems="5"
+        android:maxLength="5"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivHeader"/>
+    <LinearLayout
+        android:background="@drawable/bg_voice_intro_playing_style_two_v8"
+        android:layout_width="45dp"
+        android:layout_height="20dp"
+        app:layout_constraintCircle="@+id/ivHeader"
+        app:layout_constraintCircleAngle="180"
+        app:layout_constraintCircleRadius="40dp">
+        <com.zhenai.business.profile.voice_introduction.VoiceIntroAniView
+            android:id="@+id/ivPlayAni"
+            android:layout_width="45dp"
+            android:layout_height="20dp"
+            android:tint="@color/white"/>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

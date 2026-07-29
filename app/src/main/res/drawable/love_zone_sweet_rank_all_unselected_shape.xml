@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:gravity="bottom"
+        android:height="41dp"
+        android:drawable="@drawable/love_zone_pic_sweetness_top_purple"/>
+    <item android:top="5dp">
+        <bitmap
+            android:gravity="center"
+            android:src="@drawable/love_zone_pic_sweetness_top_all_words_small"/>
+    </item>
+</layer-list>

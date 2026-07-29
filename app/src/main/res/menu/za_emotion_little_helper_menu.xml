@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_cancel_follow"
+        android:title="@string/za_emotion_cancel_follow"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/menu_school"
+        android:title="@string/za_emotion_school"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/cancel"
+        android:title="@string/cancel"
+        app:showAsAction="never"/>
+</menu>

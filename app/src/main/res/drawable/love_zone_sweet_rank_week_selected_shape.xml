@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <corners
+                android:topLeftRadius="6dp"
+                android:topRightRadius="6dp"/>
+            <solid android:color="#ffffff"/>
+        </shape>
+    </item>
+    <item>
+        <bitmap
+            android:gravity="center"
+            android:src="@drawable/love_zone_pic_sweetness_top_week_words"/>
+    </item>
+</layer-list>

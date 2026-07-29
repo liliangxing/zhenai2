@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center"
+    android:layout_gravity="center"
+    android:id="@+id/offline_vip_entrance_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/recommend_top_guide_view">
+    <RelativeLayout
+        android:gravity="center"
+        android:id="@+id/root"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp25">
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottie_view_offline_vip_entrance"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"/>
+        <com.opensource.svgaplayer.SVGAImageView
+            android:id="@+id/offline_vip_entrance_svga"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"/>
+    </RelativeLayout>
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/iv_recommend_entrance_close"
+        android:paddingTop="@dimen/dp5"
+        android:paddingBottom="@dimen/dp4"
+        android:visibility="visible"
+        android:layout_width="@dimen/dp25"
+        android:layout_height="@dimen/dp26"
+        android:layout_marginTop="-26dp"
+        android:src="@drawable/ic_recommend_entrance_close"
+        android:layout_alignTop="@+id/root"
+        android:paddingStart="@dimen/dp4"
+        android:paddingEnd="@dimen/dp2"
+        android:layout_alignEnd="@+id/root"/>
+</RelativeLayout>

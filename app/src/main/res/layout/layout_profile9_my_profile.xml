@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <com.zhenai.common.widget.BoldTextView
+        android:id="@+id/tv_title_detail_info"
+        android:text="@string/base_info"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/recommendProfile9TitleTextViewStyle"/>
+    <com.zhenai.profile.base_profile.widget.Profile9MyProfileDetailView
+        android:id="@+id/v_profile_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title_detail_info"/>
+    <com.zhenai.common.widget.BoldTextView
+        android:id="@+id/profile7_mate_conditions_title"
+        android:layout_marginTop="@dimen/dp36"
+        android:text="@string/mate_conditions"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/v_profile_detail"
+        style="@style/recommendProfile8TitleTextViewStyle"/>
+    <com.zhenai.profile.base_profile.widget.Profile9MyProfileOpinionView
+        android:id="@+id/v_profile_opinion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile7_mate_conditions_title"/>
+</merge>

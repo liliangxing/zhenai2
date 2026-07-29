@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fl_global_banner"
+    android:layout_width="match_parent"
+    android:layout_height="83dp">
+    <ImageView
+        android:id="@+id/iv_global_banner"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginBottom="8dp"
+        android:scaleType="fitCenter"
+        android:layout_marginHorizontal="12dp"/>
+    <TextView
+        android:textSize="14sp"
+        android:textColor="@color/white"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/tv_global_tips"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:maxWidth="224dp"
+        android:lines="1"
+        android:layout_marginStart="80dp"
+        android:layout_marginEnd="60dp"/>
+</FrameLayout>

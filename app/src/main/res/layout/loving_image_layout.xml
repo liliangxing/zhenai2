@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:layout_gravity="center"
+        android:id="@+id/avatar_iv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <TextView
+        android:textSize="@dimen/dimen_13sp"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:id="@+id/tv_gray_mask"
+        android:background="@drawable/bg_mine_avatar2"
+        android:visibility="gone"
+        android:clickable="false"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <ImageView
+        android:id="@+id/loving_iv"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <ImageView
+        android:layout_gravity="bottom|center_horizontal"
+        android:id="@+id/loving_iv_v8"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/loving_tag_v8"/>
+    <com.zhenai.common.widget.RoundImageView
+        android:layout_gravity="bottom|center_horizontal"
+        android:id="@+id/loving_iv_v2"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_marginBottom="2dp"
+        app:radius_left_down="8dp"
+        app:radius_right_down="8dp"
+        app:roundImageType="round"/>
+</FrameLayout>

@@ -1,0 +1,52 @@
+[
+  {
+    "andImageURL": "https://images.zastatic.com/app/psy/icon/label_rzcy_p.jpg",
+    "andSmallImageURL": "https://images.zastatic.com/app/psy/icon/label_rzcy_icon_p.png",
+    "engDescribe": "Gender differences",
+    "iosImageURL": "https://images.zastatic.com/app/psy/icon/label_rzcy_p.jpg",
+    "iosSmallImageURL": "https://images.zastatic.com/app/psy/icon/label_rzcy_icon_p.png",
+    "labelID": 1,
+    "labelName": "两性差异",
+    "slogn": "男人来自金星，女人来自火星"
+  },
+  {
+    "andImageURL": "https://images.zastatic.com/app/psy/icon/label_laxl_p.jpg",
+    "andSmallImageURL": "https://images.zastatic.com/app/psy/icon/label_laxl_icon_p.png",
+    "engDescribe": "love psychology",
+    "iosImageURL": "https://images.zastatic.com/app/psy/icon/label_laxl_p.jpg",
+    "iosSmallImageURL": "https://images.zastatic.com/app/psy/icon/label_laxl_icon_p.png",
+    "labelID": 2,
+    "labelName": "恋爱心理",
+    "slogn": "让爱情有规律可循"
+  },
+  {
+    "andImageURL": "https://images.zastatic.com/app/psy/icon/label_mlts_p.jpg",
+    "andSmallImageURL": "https://images.zastatic.com/app/psy/icon/label_mlts_icon_p.png",
+    "engDescribe": "Charm ascension",
+    "iosImageURL": "https://images.zastatic.com/app/psy/icon/label_mlts_p.jpg",
+    "iosSmallImageURL": "https://images.zastatic.com/app/psy/icon/label_mlts_icon_p.png",
+    "labelID": 3,
+    "labelName": "魅力提升",
+    "slogn": "成为更好的自己，遇见更优质的恋人"
+  },
+  {
+    "andImageURL": "https://images.zastatic.com/app/psy/icon/label_yhjq_p.jpg",
+    "andSmallImageURL": "https://images.zastatic.com/app/psy/icon/label_yhjq_icon_p.png",
+    "engDescribe": "Dating tips",
+    "iosImageURL": "https://images.zastatic.com/app/psy/icon/label_yhjq_p.jpg",
+    "iosSmallImageURL": "https://images.zastatic.com/app/psy/icon/label_yhjq_icon_p.png",
+    "labelID": 4,
+    "labelName": "约会技巧",
+    "slogn": "要想对象撩得好，约会技术不能少"
+  },
+  {
+    "andImageURL": "https://images.zastatic.com/app/psy/icon/label_gxtj_p.jpg",
+    "andSmallImageURL": "https://images.zastatic.com/app/psy/icon/label_gxtj_icon_p.png",
+    "engDescribe": "Relationship to promote",
+    "iosImageURL": "https://images.zastatic.com/app/psy/icon/label_gxtj_p.jpg",
+    "iosSmallImageURL": "https://images.zastatic.com/app/psy/icon/label_gxtj_icon_p.png",
+    "labelID": 5,
+    "labelName": "关系推进",
+    "slogn": "步步为营打造完美关系"
+  }
+]

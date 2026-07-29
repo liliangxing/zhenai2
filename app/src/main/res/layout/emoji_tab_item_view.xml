@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:layout_gravity="center"
+        android:id="@+id/tab_item_iv"
+        android:background="@drawable/bg_message_emoji_tab_item"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:layout_width="@dimen/dimen_50dp"
+        android:layout_height="33dp"
+        android:paddingStart="13dp"
+        android:paddingEnd="13dp"/>
+</FrameLayout>

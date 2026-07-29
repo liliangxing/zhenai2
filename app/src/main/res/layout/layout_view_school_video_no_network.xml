@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#000000"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/iv_poster"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"/>
+    <TextView
+        android:textSize="@dimen/dimen_14sp"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:id="@+id/tv_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="网络未连接，请检查网络设置"
+        app:layout_constraintBottom_toTopOf="@+id/fra_nonetwork_container"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"/>
+    <FrameLayout
+        android:id="@+id/fra_nonetwork_container"
+        android:background="@drawable/shape_bg_continue_play"
+        android:layout_width="@dimen/dimen_100dp"
+        android:layout_height="@dimen/dimen_32dp"
+        android:layout_marginTop="@dimen/dimen_15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_content">
+        <TextView
+            android:textSize="@dimen/dimen_14sp"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            android:id="@+id/tv_replay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="刷新重试"
+            android:drawableLeft="@drawable/ic_school_video_replay"
+            android:drawablePadding="@dimen/dimen_3dp"/>
+    </FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

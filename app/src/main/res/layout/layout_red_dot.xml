@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhenai.lib.zaui.tablayout.view.RedDotView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:textSize="10sp"
+    android:textColor="#ffffff"
+    android:gravity="center"
+    android:id="@+id/redDotView"
+    android:visibility="gone"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:rdv_backgroundColor="#344"
+    app:rdv_cornerRadius="8dp"
+    app:rdv_isRadiusHalfHeight="false"
+    app:rdv_isWidthHeightEqual="false"
+    app:rdv_strokeColor="#fff"
+    app:rdv_strokeWidth="1dp"/>

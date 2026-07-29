@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhenai.login.register.widget.GridPicker xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:id="@+id/ll_left_title"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/dimen_12dp"
+        android:layout_marginStart="@dimen/dp12">
+        <TextView
+            android:textSize="18sp"
+            android:textColor="@color/color_767dff"
+            android:id="@+id/tv_decade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lines="1"/>
+        <TextView
+            android:textSize="15sp"
+            android:textColor="@color/color_767dff"
+            android:id="@+id/tv_unit"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lines="1"/>
+        <View
+            android:background="@color/color_767dff"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+    </LinearLayout>
+    <com.zhenai.base.widget.AtMostGridView
+        android:id="@+id/gv_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchMode="columnWidth"
+        android:numColumns="4"/>
+</com.zhenai.login.register.widget.GridPicker>

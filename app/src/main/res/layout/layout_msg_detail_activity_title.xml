@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:textSize="16sp"
+        android:textColor="@color/color_42475C"
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:textSize="11sp"
+        android:textColor="@color/white"
+        android:id="@+id/tv_subtitle_official"
+        android:background="@drawable/bg_flag_official_match_maker"
+        android:paddingTop="@dimen/dimen_1dp"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_3dp"
+        android:text="@string/official_female_match_maker"
+        android:paddingStart="@dimen/dimen_3dp"
+        android:paddingEnd="@dimen/dimen_3dp"/>
+    <TextView
+        android:textSize="12sp"
+        android:textColor="@color/color_bcbcbc"
+        android:id="@+id/tv_second_title"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_2dp"/>
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottie_view"
+        android:visibility="gone"
+        android:layout_width="120dp"
+        android:layout_height="18dp"
+        android:layout_marginTop="@dimen/dimen_2dp"
+        app:lottie_fileName="animation/data.json"/>
+</LinearLayout>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.zhenai.common.widget.RoundImageView
+        android:layout_gravity="center"
+        android:id="@+id/ivCover"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:adjustViewBounds="true"
+        app:radius_left_down="@dimen/dp8"
+        app:radius_left_up="@dimen/dp8"
+        app:radius_right_down="@dimen/dp8"
+        app:radius_right_up="@dimen/dp8"
+        app:roundImageType="round"/>
+    <ImageView
+        android:layout_gravity="center"
+        android:id="@+id/ivPlay"
+        android:background="@drawable/ic_moments_video_play"
+        android:layout_width="40dp"
+        android:layout_height="40dp"/>
+</FrameLayout>

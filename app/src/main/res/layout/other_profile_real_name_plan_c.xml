@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:textSize="14sp"
+        android:textColor="#666978"
+        android:gravity="center_horizontal"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/message1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="13.5dp"
+        android:lineSpacingExtra="5dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"/>
+    <FrameLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="63dp"
+        android:layout_marginBottom="14dp"
+        android:layout_alignParentBottom="true">
+        <Button
+            android:id="@+id/go_to_real_name_verify"
+            android:text="@string/go_to_real_name_verify"
+            style="@style/common_long_btn_style"/>
+    </FrameLayout>
+</LinearLayout>

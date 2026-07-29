@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:layout_gravity="end"
+        android:background="@drawable/bg_live_video_common_tip_window_arrow_v2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:rotation="180"
+        android:layout_marginEnd="20dp"/>
+    <TextView
+        android:textSize="12sp"
+        android:textColor="@color/white"
+        android:background="@drawable/bg_26273c_rectangle_16_radius"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="你和Ta的对话，可以被置顶或收藏哦"
+        android:paddingStart="13dp"
+        android:paddingEnd="13dp"/>
+</FrameLayout>

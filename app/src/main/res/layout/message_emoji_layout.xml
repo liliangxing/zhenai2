@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/emoji_layout"
+    android:layout_width="match_parent"
+    android:layout_height="285dp">
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/emoji_view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="236dp"/>
+    <FrameLayout
+        android:layout_gravity="bottom"
+        android:id="@+id/emoji_tab_root_layout"
+        android:layout_width="match_parent"
+        android:layout_height="49dp">
+        <com.google.android.material.tabs.TabLayout
+            android:layout_gravity="center_vertical"
+            android:id="@+id/emoji_tabLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="33dp"
+            android:layout_marginStart="@dimen/dimen_10dp"
+            app:tabBackground="@color/transparent"
+            app:tabGravity="center"
+            app:tabIndicatorHeight="0dp"
+            app:tabPaddingEnd="12dp"
+            app:tabPaddingStart="0dp"
+            app:tabRippleColor="@color/transparent"/>
+        <ImageView
+            android:layout_gravity="end|center_vertical"
+            android:id="@+id/delete_emoji"
+            android:padding="@dimen/dimen_10dp"
+            android:layout_width="49dp"
+            android:layout_height="49dp"
+            android:src="@drawable/message_delete_emoji"
+            android:layout_marginEnd="@dimen/dimen_15dp"/>
+    </FrameLayout>
+</merge>

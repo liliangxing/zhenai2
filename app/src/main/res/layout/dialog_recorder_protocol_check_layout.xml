@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <CheckBox
+        android:layout_gravity="top"
+        android:id="@+id/checkbox_agree"
+        android:background="@drawable/user_moment_check_box_selector_v8"
+        android:paddingLeft="@dimen/dp10"
+        android:paddingRight="@dimen/dp10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="false"
+        android:button="@null"/>
+    <TextView
+        android:textSize="12sp"
+        android:textColor="#6c6d75"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="知道了，不再出现此提醒"/>
+</LinearLayout>

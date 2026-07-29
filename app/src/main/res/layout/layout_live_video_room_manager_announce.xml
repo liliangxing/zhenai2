@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhenai.live_common.room_manager.RoomManagerLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="24dp">
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:id="@+id/group_live_video_room_manager_content"
+        android:background="@drawable/bg_live_video_professional_match_announce"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/dp30"
+        android:paddingEnd="@dimen/dp35">
+        <ImageView
+            android:background="@drawable/bg_zalive_qian_xian_gong_gao_banner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp5"/>
+        <com.zhenai.live_common.room_manager.RoomManagerMarqueeView
+            android:id="@+id/tv_live_video_room_manager_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:marqueeview_isclickalbe_stop="false"
+            app:marqueeview_repet_type="repet_continuous"
+            app:marqueeview_text_color="@color/white"
+            app:marqueeview_text_size="13"
+            app:marqueeview_text_speed="2"
+            marqueeview_sleep_time="0"/>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</com.zhenai.live_common.room_manager.RoomManagerLayout>

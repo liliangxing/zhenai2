@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout_visit_lock_item"
+    android:background="@color/white"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingBottom="12dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="16dp">
+    <me.yintaibing.universaldrawable.view.UniversalDrawableLinearLayout
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        android:layout_width="match_parent"
+        android:layout_height="28dp"
+        android:paddingHorizontal="4dp"
+        app:bg_colorNormal="#f8f7fe"
+        app:bg_fillMode="color"
+        app:bg_radius="8dp"
+        app:bg_shape="round">
+        <TextView
+            android:textSize="12sp"
+            android:textColor="@color/color_191c32"
+            android:ellipsize="end"
+            android:gravity="start"
+            android:id="@+id/tv_lock_banner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:lines="1"
+            android:layout_weight="1"
+            android:paddingEnd="1dp"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_view_me_lock_banner_right_arrow"/>
+    </me.yintaibing.universaldrawable.view.UniversalDrawableLinearLayout>
+</FrameLayout>

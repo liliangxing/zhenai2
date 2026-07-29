@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:state_checked="true"
+        android:drawable="@drawable/switch_767dff_10_radius_32width"/>
+    <item
+        android:state_checked="false"
+        android:drawable="@drawable/switch_white30_10_radius_32width"/>
+</selector>

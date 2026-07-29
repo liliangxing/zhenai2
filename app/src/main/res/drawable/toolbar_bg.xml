@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <gradient
+        android:startColor="?attr/res_0x7f040035_album_primarydark"
+        android:endColor="?attr/res_0x7f040034_album_primary"
+        android:angle="0"/>
+</shape>

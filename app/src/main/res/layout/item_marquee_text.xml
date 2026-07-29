@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:textSize="@dimen/dimen_12sp"
+    android:textStyle="bold"
+    android:textColor="@color/white"
+    android:id="@+id/rank_message"
+    android:paddingTop="@dimen/dimen_5dp"
+    android:paddingBottom="@dimen/dimen_5dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="---"
+    android:singleLine="true"
+    android:drawablePadding="@dimen/dimen_5dp"/>

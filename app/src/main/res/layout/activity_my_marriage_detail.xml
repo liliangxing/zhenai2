@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.zhenai.common.widget.refresh.ZARefreshLayout
+        android:id="@+id/lv_answer_detail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_list"
+            android:fadingEdge="none"
+            android:descendantFocusability="blocksDescendants"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:listSelector="@color/transparent"
+            android:cacheColorHint="@android:color/transparent"
+            android:footerDividersEnabled="false"
+            android:overScrollMode="never"/>
+    </com.zhenai.common.widget.refresh.ZARefreshLayout>
+</RelativeLayout>

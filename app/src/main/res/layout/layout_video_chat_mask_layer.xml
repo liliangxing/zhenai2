@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:id="@+id/video_mask_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <FrameLayout
+        android:id="@+id/layout_wait_mir_1"
+        android:background="@color/color_352b58"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/layout_wait_mir_4"
+        app:layout_constraintEnd_toStartOf="@+id/layout_wait_mir_2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <TextView
+            android:text="@string/_1"
+            style="@style/LiveVideo7.SeatLayerIndex"/>
+        <LinearLayout
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView style="@style/LiveVideo7.SeatCenterBg"/>
+            <TextView style="@style/LiveVideo7.SeatCenterBgText"/>
+        </LinearLayout>
+    </FrameLayout>
+    <FrameLayout
+        android:id="@+id/layout_wait_mir_2"
+        android:background="@color/color_352b58"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/layout_wait_mir_1"
+        app:layout_constraintEnd_toStartOf="@+id/layout_wait_mir_3"
+        app:layout_constraintStart_toEndOf="@+id/layout_wait_mir_1"
+        app:layout_constraintTop_toTopOf="@+id/layout_wait_mir_1">
+        <TextView
+            android:text="@string/_2"
+            style="@style/LiveVideo7.SeatLayerIndex"/>
+        <LinearLayout
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView style="@style/LiveVideo7.SeatCenterBg"/>
+            <TextView style="@style/LiveVideo7.SeatCenterBgText"/>
+        </LinearLayout>
+    </FrameLayout>
+    <FrameLayout
+        android:gravity="center"
+        android:orientation="vertical"
+        android:id="@+id/layout_wait_mir_3"
+        android:background="@color/color_352b58"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/layout_wait_mir_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/layout_wait_mir_2"
+        app:layout_constraintTop_toTopOf="@+id/layout_wait_mir_1">
+        <TextView
+            android:text="@string/_3"
+            style="@style/LiveVideo7.SeatLayerIndex"/>
+        <LinearLayout
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView style="@style/LiveVideo7.SeatCenterBg"/>
+            <TextView style="@style/LiveVideo7.SeatCenterBgText"/>
+        </LinearLayout>
+    </FrameLayout>
+    <FrameLayout
+        android:id="@+id/layout_wait_mir_4"
+        android:background="@color/color_352b58"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/layout_wait_mir_5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_wait_mir_1">
+        <TextView
+            android:text="@string/_4"
+            style="@style/LiveVideo7.SeatLayerIndex"/>
+        <LinearLayout
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView style="@style/LiveVideo7.SeatCenterBg"/>
+            <TextView style="@style/LiveVideo7.SeatCenterBgText"/>
+        </LinearLayout>
+    </FrameLayout>
+    <FrameLayout
+        android:id="@+id/layout_wait_mir_5"
+        android:background="@color/color_352b58"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/layout_wait_mir_4"
+        app:layout_constraintEnd_toStartOf="@+id/layout_wait_mir_6"
+        app:layout_constraintStart_toEndOf="@+id/layout_wait_mir_4"
+        app:layout_constraintTop_toTopOf="@+id/layout_wait_mir_4">
+        <TextView
+            android:text="@string/_5"
+            style="@style/LiveVideo7.SeatLayerIndex"/>
+        <LinearLayout
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView style="@style/LiveVideo7.SeatCenterBg"/>
+            <TextView style="@style/LiveVideo7.SeatCenterBgText"/>
+        </LinearLayout>
+    </FrameLayout>
+    <FrameLayout
+        android:id="@+id/layout_wait_mir_6"
+        android:background="@color/color_352b58"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/layout_wait_mir_4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/layout_wait_mir_5"
+        app:layout_constraintTop_toTopOf="@+id/layout_wait_mir_4">
+        <TextView
+            android:text="@string/_6"
+            style="@style/LiveVideo7.SeatLayerIndex"/>
+        <LinearLayout
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView style="@style/LiveVideo7.SeatCenterBg"/>
+            <TextView style="@style/LiveVideo7.SeatCenterBgText"/>
+        </LinearLayout>
+    </FrameLayout>
+    <View
+        android:background="@color/white_10"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dimen_1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5"/>
+    <View
+        android:background="@color/white_10"
+        android:layout_width="@dimen/dimen_1dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.3333"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <View
+        android:background="@color/white_10"
+        android:layout_width="@dimen/dimen_1dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6666"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:textSize="11sp"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:id="@+id/tv_increase_time"
+        android:background="@drawable/live_video_hn_match_onmic_add_friend_bg"
+        android:paddingLeft="@dimen/dimen_8dp"
+        android:paddingRight="@dimen/dimen_8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:text="@string/hn_match_audience_increase_mic_time"
+        android:layout_marginStart="@dimen/dimen_3dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+        android:textSize="12sp"
+        android:textColor="@color/white"
+        android:id="@+id/tv_last_time"
+        android:paddingRight="@dimen/dimen_8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hn_match_audience_last_time"
+        android:layout_marginStart="@dimen/dimen_4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/tv_increase_time"
+        app:layout_constraintTop_toTopOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

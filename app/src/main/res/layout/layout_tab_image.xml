@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/tab_item_textview"
+    android:layout_width="40dp"
+    android:layout_height="40dp">
+    <ImageView
+        android:id="@+id/title_image"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"/>
+    <com.zhenai.common.widget.RedDotView
+        android:layout_gravity="end"
+        android:id="@+id/red_dot"
+        android:visibility="invisible"
+        android:layout_width="8dp"
+        android:layout_height="8dp"
+        app:backgroundColor="@color/red_dot_color"
+        app:isRadiusHalfHeight="true"
+        app:isWidthHeightEqual="true"/>
+</FrameLayout>

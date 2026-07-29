@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.zhenai.base.widget.DashedLineView
+        android:id="@+id/view_dashed_line"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="12.5dp"
+        android:layout_alignParentBottom="true"
+        app:color="#40000000"
+        app:dashGap="2dp"
+        app:dashWidth="4dp"
+        app:isVertical="false"/>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="29dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="15dp">
+        <com.zhenai.base.widget.FlowLayout
+            android:orientation="horizontal"
+            android:id="@+id/label_layout"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            app:type="radial"/>
+        <TextView
+            android:textSize="13sp"
+            android:textColor="#666978"
+            android:id="@+id/decs_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:lineSpacingExtra="@dimen/dimen_8dp"/>
+    </LinearLayout>
+</RelativeLayout>

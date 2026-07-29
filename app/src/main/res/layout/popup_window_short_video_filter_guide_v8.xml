@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="155dp"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/iv_triangle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/shortvideo_triangle_up_v8"
+        android:layout_marginStart="110dp"/>
+    <TextView
+        android:textSize="15sp"
+        android:textColor="#ffffff"
+        android:gravity="center"
+        android:id="@+id/guide_text_view"
+        android:background="@drawable/shortvideo_rectangle_corner_v8"
+        android:layout_width="155dp"
+        android:layout_height="42dp"
+        android:text="@string/short_video_filter_guide"/>
+</LinearLayout>

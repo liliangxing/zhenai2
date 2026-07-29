@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.zhenai.common.widget.ListItemLayout
+        android:id="@+id/layout_kill_app"
+        android:background="?attr/selectableItemBackground"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        app:arrowIconVisibility="false"
+        app:contentColor="#ff8162"
+        app:contentMarginRight="16dp"
+        app:contentSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:lineMarginLeft="19dp"
+        app:lineVisibility="true"
+        app:paddingLeft="19dp"
+        app:paddingRight="19dp"
+        app:titleColor="@color/color_666978"
+        app:titleSize="14sp"
+        app:titleText="@string/kill_app"/>
+    <com.zhenai.common.widget.ListItemLayout
+        android:id="@+id/layout_log_upload"
+        android:background="?attr/selectableItemBackground"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        app:arrowIcon="@drawable/icon_enter"
+        app:contentColor="#ff8162"
+        app:contentMarginRight="16dp"
+        app:contentSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lineMarginLeft="19dp"
+        app:lineVisibility="true"
+        app:paddingLeft="19dp"
+        app:paddingRight="19dp"
+        app:titleColor="@color/color_666978"
+        app:titleSize="14sp"
+        app:titleText="@string/upload_log_file"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

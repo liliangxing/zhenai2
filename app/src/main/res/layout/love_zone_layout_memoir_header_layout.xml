@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/header_main_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:layout_gravity="center"
+        android:id="@+id/header_iv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"/>
+    <ImageView
+        android:layout_gravity="center"
+        android:id="@+id/header_float_iv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:alpha="0"/>
+    <ImageView
+        android:layout_gravity="bottom"
+        android:id="@+id/header_round_iv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/love_zone_bg_list_fillet"
+        android:scaleType="fitXY"/>
+    <TextView
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/test_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0"/>
+</FrameLayout>

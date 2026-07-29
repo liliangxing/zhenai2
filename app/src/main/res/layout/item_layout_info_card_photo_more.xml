@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/iv_avatar"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:src="@drawable/default_avatar"/>
+    <com.zhenai.common.widget.RoundImageView
+        android:id="@+id/iv_more"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:src="@drawable/img_member_info_card_photo_more"
+        app:radius_left_down="8dp"
+        app:radius_left_up="8dp"
+        app:radius_right_down="8dp"
+        app:radius_right_up="8dp"
+        app:roundImageType="round"/>
+</FrameLayout>

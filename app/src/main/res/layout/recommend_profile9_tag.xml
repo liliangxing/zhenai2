@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<me.yintaibing.universaldrawable.view.UniversalDrawableLinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:id="@+id/view_root"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="12dp"
+    android:layout_marginBottom="4dp"
+    android:paddingEnd="@dimen/dp12"
+    android:layout_marginEnd="4dp"
+    app:bg_colorNormal="@color/color_f2f4f5"
+    app:bg_fillMode="color"
+    app:bg_radius="@dimen/dp14"
+    app:bg_shape="round">
+    <ImageView
+        android:id="@+id/leftIcon"
+        android:layout_width="@dimen/dp20"
+        android:layout_height="@dimen/dp20"
+        android:layout_margin="4dp"/>
+    <TextView
+        android:textSize="@dimen/dimen_14sp"
+        android:textColor="#191c32"
+        android:gravity="center_vertical"
+        android:layout_gravity="center_vertical"
+        android:id="@+id/tv_tag_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp4"
+        android:layout_marginBottom="@dimen/dp4"
+        android:layout_marginVertical="@dimen/dp4"/>
+</me.yintaibing.universaldrawable.view.UniversalDrawableLinearLayout>

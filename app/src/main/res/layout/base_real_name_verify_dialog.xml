@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:id="@+id/view_dialog_content"
+        android:background="@drawable/bg_common_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="30dp"
+        android:layout_centerHorizontal="true">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:src="@drawable/other_profile_real_name_verify_bg"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"/>
+    </LinearLayout>
+    <ImageView
+        android:id="@+id/btn_close"
+        android:padding="5dp"
+        android:visibility="visible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-16dp"
+        android:layout_marginRight="-16dp"
+        android:layout_alignTop="@+id/view_dialog_content"
+        android:layout_alignRight="@+id/view_dialog_content"
+        app:srcCompat="@drawable/ic_common_dialog_close_btn"/>
+</RelativeLayout>

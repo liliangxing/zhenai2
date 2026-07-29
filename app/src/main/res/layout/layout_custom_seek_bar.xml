@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/img_progress_left"
+        android:layout_width="32dp"
+        android:layout_height="32dp"/>
+    <SeekBar
+        android:id="@+id/beauty_seek_bar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:maxHeight="2dp"
+        android:max="100"
+        android:progress="0"
+        android:progressDrawable="@drawable/fu_seekbar_red_bg"
+        android:minHeight="2dp"
+        android:thumb="@drawable/fu_seekbar_thumb"
+        android:layout_weight="1"/>
+    <TextView
+        android:textSize="14sp"
+        android:textColor="#ffffff"
+        android:gravity="center"
+        android:id="@+id/tv_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"/>
+</LinearLayout>

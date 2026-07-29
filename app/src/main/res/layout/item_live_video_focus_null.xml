@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:textSize="14sp"
+    android:textColor="#ffa0a0a0"
+    android:gravity="center"
+    android:id="@+id/tv_no_focus"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:text="@string/live_main_list_no_focus"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"/>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/media_item_iv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"/>
+    <LinearLayout
+        android:gravity="center_horizontal"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:id="@+id/pic_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_moment_add"/>
+        <TextView
+            android:textSize="12sp"
+            android:textColor="#aeafb3"
+            android:id="@+id/media_tips_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="图片/视频"/>
+    </LinearLayout>
+    <ImageView
+        android:layout_gravity="center"
+        android:id="@+id/media_item_video_play_iv"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_moments_video_play"/>
+</FrameLayout>

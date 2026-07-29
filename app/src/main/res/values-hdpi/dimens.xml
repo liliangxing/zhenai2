@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="moments_media_remove_area_height">60dp</dimen>
+    <dimen name="moments_media_rv_padding">12dp</dimen>
+    <dimen name="moments_media_rv_padding_v8">28dp</dimen>
+    <dimen name="other_profile_album_top">8dp</dimen>
+    <dimen name="wbcf_protocol_bottom_text_margin">50dp</dimen>
+    <dimen name="wbcf_protocol_title_size">18sp</dimen>
+    <dimen name="wbcf_protocol_txt_size">10sp</dimen>
+</resources>

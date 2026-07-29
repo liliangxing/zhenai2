@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:textSize="@dimen/dimen_13sp"
+    android:textColor="@color/color_666978"
+    android:gravity="center"
+    android:id="@+id/tv_expertise"
+    android:paddingBottom="@dimen/dp14"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"/>

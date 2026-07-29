@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView
+        android:id="@+id/img_cover"
+        android:background="#fff3f5f7"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"/>
+    <ImageView
+        android:layout_gravity="center"
+        android:id="@+id/img_play"
+        android:layout_width="@dimen/dp36"
+        android:layout_height="@dimen/dp36"
+        android:src="@drawable/icon_video_play_v8"/>
+    <me.yintaibing.universaldrawable.view.UniversalDrawableTextView
+        android:textSize="@dimen/dimen_11sp"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:paddingLeft="8dp"
+        android:paddingTop="2dp"
+        android:paddingRight="8dp"
+        android:paddingBottom="2dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="@string/live_timing"
+        android:layout_marginStart="5dp"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="2dp"
+        app:bg_colorGradientEnd="@color/color_767dff"
+        app:bg_colorGradientStart="@color/color_767dff"
+        app:bg_fillMode="linearGradient"
+        app:bg_radius="@dimen/dimen_4dp"
+        app:bg_shape="round"/>
+</merge>

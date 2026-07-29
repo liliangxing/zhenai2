@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_item"
+    android:padding="@dimen/dp2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/iv_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"/>
+    <ImageView
+        android:id="@+id/iv_video_mark"
+        android:visibility="gone"
+        android:layout_width="30dp"
+        android:layout_height="13dp"
+        android:layout_marginTop="4dp"
+        android:src="@drawable/icon_recommend_video_play_new"
+        android:scaleType="centerInside"
+        android:layout_marginStart="4dp"/>
+</FrameLayout>

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.zhenai2.common.router.RouterPath
@@ -16,6 +17,7 @@ import com.zhenai2.common.router.RouterPath
  * 复刻珍爱 App 主页四 Tab 结构: 推荐 / 消息 / 动态 / 我的
  * 各 Tab Fragment 通过 ARouter 按模块获取,实现模块解耦。
  */
+@Route(path = RouterPath.MAIN)
 class MainActivity : AppCompatActivity() {
 
     private lateinit var viewPager: ViewPager2
@@ -53,7 +55,8 @@ class MainActivity : AppCompatActivity() {
             override fun getItemCount() = tabs.size
             override fun createFragment(position: Int): Fragment =
                 ARouter.getInstance().build(tabs[position])
-                    .navigation() as Fragment
+                    .navigation() as? Fragment
+                    ?: androidx.fragment.app.Fragment() // 路由缺失时兜底,避免 null 强转闪退
         }
         viewPager.isUserInputEnabled = false
     }

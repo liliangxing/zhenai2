@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
+import com.zhenai2.common.FileLog
 import com.zhenai2.common.router.RouterPath
 
 /**
@@ -34,11 +35,16 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
-        setContentView(buildUI())
-
-        viewModel.loadConfig()
-        observe()
+        FileLog.i("LoginActivity onCreate")
+        try {
+            viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
+            setContentView(buildUI())
+            viewModel.loadConfig()
+            observe()
+        } catch (e: Throwable) {
+            FileLog.e("LoginActivity onCreate 失败", e)
+            throw e
+        }
     }
 
     private fun buildUI(): View {
@@ -87,6 +93,7 @@ class LoginActivity : AppCompatActivity() {
         }
         viewModel.loginResult.observe(this) { result ->
             if (result != null) {
+                FileLog.i("登录成功, 跳转主页")
                 Toast.makeText(this, "登录成功", Toast.LENGTH_SHORT).show()
                 ARouter.getInstance().build(RouterPath.MAIN).navigation(this)
                 finish()

@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.alibaba.android.arouter.facade.annotation.Route
+import com.zhenai2.common.FileLog
 import com.zhenai2.common.router.RouterPath
 import com.zhenai2.network.NetworkClient
 import kotlinx.coroutines.launch
@@ -51,6 +52,7 @@ class RecommendFragment : Fragment() {
                 }
             } catch (e: Exception) {
                 // 网络异常(WAF/未登录)忽略,展示默认
+                FileLog.w("getBasicProfile.do 异常", e)
             }
         }
     }

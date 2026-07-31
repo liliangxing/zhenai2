@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.alibaba.android.arouter.launcher.ARouter
 import com.zhenai2.common.AccountManager
+import com.zhenai2.common.FileLog
 import com.zhenai2.common.router.RouterPath
 import com.zhenai2.network.NetworkClient
 import kotlinx.coroutines.launch
@@ -25,8 +26,13 @@ class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // 原 App 启动有闪屏图,这里直接走逻辑,UI 由 res 迁移的资源承载
-        lifecycleScope.launch {
-            checkLoginAndRoute()
+        try {
+            lifecycleScope.launch {
+                checkLoginAndRoute()
+            }
+        } catch (e: Throwable) {
+            FileLog.e("SplashActivity 启动协程失败", e)
+            routeToLogin()
         }
     }
 
@@ -46,16 +52,20 @@ class SplashActivity : AppCompatActivity() {
             }
         } catch (e: Exception) {
             // 网络异常默认进登录页
+            FileLog.w("checkLogin.do 网络异常, 默认进登录页", e)
             routeToLogin()
         }
-        finish()
     }
 
     private fun routeToMain() {
+        FileLog.i("SplashActivity -> 主页")
         ARouter.getInstance().build(RouterPath.MAIN).navigation(this)
+        finish()
     }
 
     private fun routeToLogin() {
+        FileLog.i("SplashActivity -> 登录页")
         ARouter.getInstance().build(RouterPath.LOGIN).navigation(this)
+        finish()
     }
 }

@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.zhenai2.common.AccountManager
 import com.zhenai2.common.base.BaseViewModel
 import com.zhenai2.common.Constants
+import com.zhenai2.common.FileLog
 import com.zhenai2.network.CaptchaConfig
 import com.zhenai2.network.LoginConfig
 import com.zhenai2.network.LoginResult
@@ -47,7 +48,9 @@ class LoginViewModel : BaseViewModel() {
 
     /** 页面加载: 拉取登录配置 + 验证码配置 */
     fun loadConfig() {
-        launch(onError = { it.printStackTrace() }) {
+        launch(onError = { e ->
+            FileLog.e("登录配置拉取异常", e)
+        }) {
             // 对应 login.js mounted: kr("/system/getConfigureInfo.do")
             val config = api.getConfigureInfo().takeIf { !it.isError }?.data
             config?.let {
@@ -83,15 +86,21 @@ class LoginViewModel : BaseViewModel() {
             _toast.value = "请输入手机号和密码"
             return
         }
-        launch(onError = { _toast.value = "网络异常: ${it.message}" }) {
+        launch(onError = { e ->
+            FileLog.e("登录请求异常", e)
+            _toast.value = "网络异常: ${e.message}"
+        }) {
             // 密码加密: 原 App 用 RSA/自定义加密,这里用摘要占位(真实加密需脱壳后还原)
             val encryptedPwd = encryptPassword(password)
+            FileLog.i("发起 userLogin.do 登录请求 phone=${phone}")
             // 对应 login.js: Fr("/login/userLogin.do", {...})
             val resp = api.userLogin(phone, encryptedPwd, captchaType, imgCode, ticket, randstr)
             if (resp.isError) {
+                FileLog.w("userLogin.do 返回错误: code=${resp.errorCode} msg=${resp.errorMessage}")
                 handleLoginError(resp.errorCode, resp.errorMessage)
             } else {
                 resp.data?.let {
+                    FileLog.i("登录成功 memberID=${it.memberID}")
                     AccountManager.saveSession(
                         token = it.token.orEmpty(),
                         sid = it.sid.orEmpty(),
@@ -99,7 +108,7 @@ class LoginViewModel : BaseViewModel() {
                         phone = phone
                     )
                     _loginResult.value = it
-                }
+                } ?: FileLog.w("userLogin.do 成功但 data 为空")
             }
         }
     }

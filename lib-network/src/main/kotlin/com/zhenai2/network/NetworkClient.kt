@@ -40,6 +40,7 @@ object NetworkClient {
         val client = OkHttpClient.Builder()
             .cookieJar(cookieJar)
             .addInterceptor(RequestInterceptor { fingerprint })
+            .addInterceptor(FileLoggerInterceptor())
             .addInterceptor(logging)
             .connectTimeout(15, TimeUnit.SECONDS)
             .readTimeout(20, TimeUnit.SECONDS)

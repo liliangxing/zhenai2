@@ -17,6 +17,9 @@ import java.util.concurrent.ConcurrentHashMap
  *   降级: api_ip(降级到 tapi.zhenai.com 时携带)
  *   header: Content-Type=application/x-www-form-urlencoded
  *   cookie: sid/token(登录态) + TDC_itoken/_efmdata(风控,由CookieJar管理)
+ *
+ * 注意: data 参数仅在设备指纹采集完成后才注入，避免空指纹导致 WAF 428 拦截。
+ *       设备指纹由 secdffinger.zhenai.com 采集，通过 NetworkClient.setFingerprint() 注入。
  */
 class RequestInterceptor(
     private val fingerprintProvider: () -> String?
@@ -30,7 +33,11 @@ class RequestInterceptor(
             .addQueryParameter("ua", ua())
             .addQueryParameter("_", System.currentTimeMillis().toString())
 
-        fingerprintProvider()?.let { builder.addQueryParameter("data", it) }
+        // 只在指纹采集完成后注入 data 参数，避免空/假指纹被 WAF 拦截
+        val fp = fingerprintProvider()
+        if (fp != null) {
+            builder.addQueryParameter("data", fp)
+        }
 
         val newUrl = builder.build()
 
@@ -39,13 +46,15 @@ class RequestInterceptor(
             .addHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8")
             .addHeader("Accept", "application/json, text/plain, */*")
             .addHeader("X-Requested-With", "XMLHttpRequest")
+            .addHeader("Referer", "https://api.zhenai.com/")
+            .addHeader("User-Agent", ua())
             .build()
 
         return chain.proceed(request)
     }
 
     private fun ua(): String =
-        "zhenai2/1.0.0 (Android ${android.os.Build.VERSION.RELEASE})"
+        "zhenai/9.29.5 (Android ${android.os.Build.VERSION.RELEASE}; ${android.os.Build.MODEL})"
 }
 
 /**

@@ -19,7 +19,7 @@ android {
         versionName = "1.0.0"
 
         // 珍爱网 H5/接口域名,编译期注入 BuildConfig
-        buildConfigField("String", "API_HOST", "\"https://api.zhenai.com\"")
+        buildConfigField("String", "API_HOST", "\"https://www.zhenai.com/api\"")
         buildConfigField("String", "API_HOST_H5", "\"https://www.zhenai.com/api\"")
         buildConfigField("String", "FINGER_HOST", "\"https://secdffinger.zhenai.com\"")
         buildConfigField("String", "H5_HOST", "\"https://i.zhenai.com\"")

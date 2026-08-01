@@ -13,3 +13,6 @@ app/src/main/AndroidManifest.xml.bak
 *.aab
 *.keystore
 !gradle-wrapper.jar
+
+# 原APK反编译资源(体积大且为原App专有资源,仅提交反编译源码sources)
+/原apk及原始反编译/反编译源码/resources/

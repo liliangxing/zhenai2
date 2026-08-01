@@ -1,0 +1,94 @@
+package com.alibaba.android.arouter.routes;
+
+import com.alibaba.android.arouter.facade.enums.RouteType;
+import com.alibaba.android.arouter.facade.model.RouteMeta;
+import com.alibaba.android.arouter.facade.template.IRouteGroup;
+import com.zhenai.love_zone.LoveZoneFragment;
+import com.zhenai.love_zone.LoveZoneProvider;
+import com.zhenai.love_zone.checkin.DailyCheckInActivityActivity;
+import com.zhenai.love_zone.dress_store.DressStoreActivity;
+import com.zhenai.love_zone.dress_store.MyDressStoreActivity;
+import com.zhenai.love_zone.love_binding.LoveBindingActivity;
+import com.zhenai.love_zone.love_experience.LoveExperienceActivity;
+import com.zhenai.love_zone.love_experience.LoveExperienceListActivity;
+import com.zhenai.love_zone.love_experience.LoveExperienceUploadTipsActivity;
+import com.zhenai.love_zone.love_memorial.LoveMemorialDayActivity;
+import com.zhenai.love_zone.love_memorial.LoveMemorialDayEditActivity;
+import com.zhenai.love_zone.love_relative.LoveRelativeActivity;
+import com.zhenai.love_zone.love_status.LoveStatusActivity;
+import com.zhenai.love_zone.love_status.LoveStatusAuditActivity;
+import com.zhenai.love_zone.love_status.LoveStatusLandingPageActivity;
+import com.zhenai.love_zone.love_status.LoveStatusLandingPageActivityV8;
+import com.zhenai.love_zone.love_task.LoveTask5Activity;
+import com.zhenai.love_zone.love_task.LoveTaskActivity;
+import com.zhenai.love_zone.love_task.LoveTaskGuideActivity;
+import com.zhenai.love_zone.love_task.task10.LoveTask10AnswerActivity;
+import com.zhenai.love_zone.love_task.task10.LoveTask10GuideActivity;
+import com.zhenai.love_zone.love_task.task10.LoveTask10ResultActivity;
+import com.zhenai.love_zone.love_task.task10.LoveTask10WatchAnswerActivity;
+import com.zhenai.love_zone.love_welfare.LoveCardActivity;
+import com.zhenai.love_zone.love_welfare.LoveWelfareActivity;
+import com.zhenai.love_zone.lover_main_page.LoverMainPageActivity;
+import com.zhenai.love_zone.lover_search.LoverSearchActivity;
+import com.zhenai.love_zone.loving_wish.LoveWishActivity;
+import com.zhenai.love_zone.loving_wish.LoveWishDetailActivity;
+import com.zhenai.love_zone.loving_wish.LoveWishEditActivity;
+import com.zhenai.love_zone.loving_wish.LoveWishListActivity;
+import com.zhenai.love_zone.memoir.MemoirActivity;
+import com.zhenai.love_zone.setting.LoveSettingActivity;
+import com.zhenai.love_zone.setting.data_watch_permission.DataWatchPermissionActivity;
+import com.zhenai.love_zone.sweetness.SweetRankActivity;
+import com.zhenai.love_zone.sweetness.SweetTaskIntroActivity;
+import com.zhenai.love_zone.sweetness.SweetnessActivity;
+import com.zhenai.love_zone.sweetness.SweetnessRecordActivity;
+import com.zhenai.love_zone.voice.LoveTaskVoiceActivity;
+import com.zhenai.love_zone.voiceintro.view.ui.VoiceIntroActivity;
+import java.util.Map;
+
+/* JADX INFO: loaded from: classes.dex */
+public class ARouter$$Group$$module_love_zone implements IRouteGroup {
+    @Override // com.alibaba.android.arouter.facade.template.IRouteGroup
+    public void loadInto(Map<String, RouteMeta> map) {
+        RouteType routeType = RouteType.ACTIVITY;
+        map.put("/module_love_zone/checkin/DailyCheckInActivity", RouteMeta.a(routeType, DailyCheckInActivityActivity.class, "/module_love_zone/checkin/dailycheckinactivity", "module_love_zone", null, -1, Integer.MIN_VALUE));
+        map.put("/module_love_zone/data_watch_permission/DataWatchPermissionActivity", RouteMeta.a(routeType, DataWatchPermissionActivity.class, "/module_love_zone/data_watch_permission/datawatchpermissionactivity", "module_love_zone", null, -1, Integer.MIN_VALUE));
+        map.put("/module_love_zone/dress_store/DressStoreActivity", RouteMeta.a(routeType, DressStoreActivity.class, "/module_love_zone/dress_store/dressstoreactivity", "module_love_zone", null, -1, Integer.MIN_VALUE));
+        map.put("/module_love_zone/dress_store/MyDressStoreActivity", RouteMeta.a(routeType, MyDressStoreActivity.class, "/module_love_zone/dress_store/mydressstoreactivity", "module_love_zone", null, -1, Integer.MIN_VALUE));
+        map.put("/module_love_zone/loveZoneFragment/LoveZoneFragment", RouteMeta.a(RouteType.FRAGMENT, LoveZoneFragment.class, "/module_love_zone/lovezonefragment/lovezonefragment", "module_love_zone", null, -1, Integer.MIN_VALUE));
+        map.put("/module_love_zone/love_binding/LoveBindingActivity", RouteMeta.a(routeType, LoveBindingActivity.class, "/module_love_zone/love_binding/lovebindingactivity", "module_love_zone", null, -1, Integer.MIN_VALUE));
+        map.put("/module_love_zone/love_memorial/LoveMemorialDayActivity", RouteMeta.a(routeType, LoveMemorialDayActivity.class, "/module_love_zone/love_memorial/lovememorialdayactivity", "module_love_zone", null, -1, Integer.MIN_VALUE));
+        map.put("/module_love_zone/love_memorial/LoveMemorialDayEditActivity", RouteMeta.a(routeType, LoveMemorialDayEditActivity.class, "/module_love_zone/love_memorial/lovememorialdayeditactivity", "module_love_zone", null, -1, Integer.MIN_VALUE));
+        map.put("/module_love_zone/love_relative/LoveRelativeActivity", RouteMeta.a(routeType, LoveRelativeActivity.class, "/module_love_zone/love_relative/loverelativeactivity", "module_love_zone", null, -1, Integer.MIN_VALUE));
+        map.put("/module_love_zone/love_status/LoveStatusActivity", RouteMeta.a(routeType, LoveStatusActivity.class, "/module_love_zone/love_status/lovestatusactivity", "module_love_zone", null, -1, Integer.MIN_VALUE));
+        map.put("/module_love_zone/love_status/LoveStatusAuditActivity", RouteMeta.a(routeType, LoveStatusAuditActivity.class, "/module_love_zone/love_status/lovestatusauditactivity", "module_love_zone", null, -1, Integer.MIN_VALUE));
+        map.put("/module_love_zone/love_status/LoveStatusLandingPageActivity", RouteMeta.a(routeType, LoveStatusLandingPageActivity.class, "/module_love_zone/love_status/lovestatuslandingpageactivity", "module_love_zone", null, -1, Integer.MIN_VALUE));
+        map.put("/module_love_zone/love_status/LoveStatusLandingPageActivityV8", RouteMeta.a(routeType, LoveStatusLandingPageActivityV8.class, "/module_love_zone/love_status/lovestatuslandingpageactivityv8", "module_love_zone", null, -1, Integer.MIN_VALUE));
+        map.put("/module_love_zone/love_task/LoveTask10AnswerActivity", RouteMeta.a(routeType, LoveTask10AnswerActivity.class, "/module_love_zone/love_task/lovetask10answeractivity", "module_love_zone", null, -1, Integer.MIN_VALUE));
+        map.put("/module_love_zone/love_task/LoveTask10GuideActivity", RouteMeta.a(routeType, LoveTask10GuideActivity.class, "/module_love_zone/love_task/lovetask10guideactivity", "module_love_zone", null, -1, Integer.MIN_VALUE));
+        map.put("/module_love_zone/love_task/LoveTask10ResultActivity", RouteMeta.a(routeType, LoveTask10ResultActivity.class, "/module_love_zone/love_task/lovetask10resultactivity", "module_love_zone", null, -1, Integer.MIN_VALUE));
+        map.put("/module_love_zone/love_task/LoveTask10WatchAnswerActivity", RouteMeta.a(routeType, LoveTask10WatchAnswerActivity.class, "/module_love_zone/love_task/lovetask10watchansweractivity", "module_love_zone", null, -1, Integer.MIN_VALUE));
+        map.put("/module_love_zone/love_task/LoveTask5Activity", RouteMeta.a(routeType, LoveTask5Activity.class, "/module_love_zone/love_task/lovetask5activity", "module_love_zone", null, -1, Integer.MIN_VALUE));
+        map.put("/module_love_zone/love_task/LoveTaskActivity", RouteMeta.a(routeType, LoveTaskActivity.class, "/module_love_zone/love_task/lovetaskactivity", "module_love_zone", null, -1, Integer.MIN_VALUE));
+        map.put("/module_love_zone/love_task/LoveTaskGuideActivity", RouteMeta.a(routeType, LoveTaskGuideActivity.class, "/module_love_zone/love_task/lovetaskguideactivity", "module_love_zone", null, -1, Integer.MIN_VALUE));
+        map.put("/module_love_zone/love_welfare/LoveCardActivity", RouteMeta.a(routeType, LoveCardActivity.class, "/module_love_zone/love_welfare/lovecardactivity", "module_love_zone", null, -1, Integer.MIN_VALUE));
+        map.put("/module_love_zone/love_welfare/LoveWelfareActivity", RouteMeta.a(routeType, LoveWelfareActivity.class, "/module_love_zone/love_welfare/lovewelfareactivity", "module_love_zone", null, -1, Integer.MIN_VALUE));
+        map.put("/module_love_zone/love_wish/LoveWishActivity", RouteMeta.a(routeType, LoveWishActivity.class, "/module_love_zone/love_wish/lovewishactivity", "module_love_zone", null, -1, Integer.MIN_VALUE));
+        map.put("/module_love_zone/love_wish/LoveWishDetailActivity", RouteMeta.a(routeType, LoveWishDetailActivity.class, "/module_love_zone/love_wish/lovewishdetailactivity", "module_love_zone", null, -1, Integer.MIN_VALUE));
+        map.put("/module_love_zone/love_wish/LoveWishEditActivity", RouteMeta.a(routeType, LoveWishEditActivity.class, "/module_love_zone/love_wish/lovewisheditactivity", "module_love_zone", null, -1, Integer.MIN_VALUE));
+        map.put("/module_love_zone/love_wish/LoveWishListActivity", RouteMeta.a(routeType, LoveWishListActivity.class, "/module_love_zone/love_wish/lovewishlistactivity", "module_love_zone", null, -1, Integer.MIN_VALUE));
+        map.put("/module_love_zone/love_zone/LoveExperienceActivity", RouteMeta.a(routeType, LoveExperienceActivity.class, "/module_love_zone/love_zone/loveexperienceactivity", "module_love_zone", null, -1, Integer.MIN_VALUE));
+        map.put("/module_love_zone/love_zone/LoveExperienceListActivity", RouteMeta.a(routeType, LoveExperienceListActivity.class, "/module_love_zone/love_zone/loveexperiencelistactivity", "module_love_zone", null, -1, Integer.MIN_VALUE));
+        map.put("/module_love_zone/love_zone/LoveExperienceUploadTipsActivity", RouteMeta.a(routeType, LoveExperienceUploadTipsActivity.class, "/module_love_zone/love_zone/loveexperienceuploadtipsactivity", "module_love_zone", null, -1, Integer.MIN_VALUE));
+        map.put("/module_love_zone/love_zone/LoveTask6Activity", RouteMeta.a(routeType, LoveTaskVoiceActivity.class, "/module_love_zone/love_zone/lovetask6activity", "module_love_zone", null, -1, Integer.MIN_VALUE));
+        map.put("/module_love_zone/lover_main_page/LoverMainPageActivity", RouteMeta.a(routeType, LoverMainPageActivity.class, "/module_love_zone/lover_main_page/lovermainpageactivity", "module_love_zone", null, -1, Integer.MIN_VALUE));
+        map.put("/module_love_zone/lover_search/LoverSearchActivity", RouteMeta.a(routeType, LoverSearchActivity.class, "/module_love_zone/lover_search/loversearchactivity", "module_love_zone", null, -1, Integer.MIN_VALUE));
+        map.put("/module_love_zone/mine/VoiceIntroActivity", RouteMeta.a(routeType, VoiceIntroActivity.class, "/module_love_zone/mine/voiceintroactivity", "module_love_zone", null, -1, Integer.MIN_VALUE));
+        map.put("/module_love_zone/moment/MemoirActivity", RouteMeta.a(routeType, MemoirActivity.class, "/module_love_zone/moment/memoiractivity", "module_love_zone", null, -1, Integer.MIN_VALUE));
+        map.put("/module_love_zone/provider/LoveZoneProvider", RouteMeta.a(RouteType.PROVIDER, LoveZoneProvider.class, "/module_love_zone/provider/lovezoneprovider", "module_love_zone", null, -1, Integer.MIN_VALUE));
+        map.put("/module_love_zone/setting/LoveSettingActivity", RouteMeta.a(routeType, LoveSettingActivity.class, "/module_love_zone/setting/lovesettingactivity", "module_love_zone", null, -1, Integer.MIN_VALUE));
+        map.put("/module_love_zone/sweetness/SweetRankActivity", RouteMeta.a(routeType, SweetRankActivity.class, "/module_love_zone/sweetness/sweetrankactivity", "module_love_zone", null, -1, Integer.MIN_VALUE));
+        map.put("/module_love_zone/sweetness/SweetTaskIntroActivity", RouteMeta.a(routeType, SweetTaskIntroActivity.class, "/module_love_zone/sweetness/sweettaskintroactivity", "module_love_zone", null, -1, Integer.MIN_VALUE));
+        map.put("/module_love_zone/sweetness/SweetnessActivity", RouteMeta.a(routeType, SweetnessActivity.class, "/module_love_zone/sweetness/sweetnessactivity", "module_love_zone", null, -1, Integer.MIN_VALUE));
+        map.put("/module_love_zone/sweetness/SweetnessRecordActivity", RouteMeta.a(routeType, SweetnessRecordActivity.class, "/module_love_zone/sweetness/sweetnessrecordactivity", "module_love_zone", null, -1, Integer.MIN_VALUE));
+    }
+}

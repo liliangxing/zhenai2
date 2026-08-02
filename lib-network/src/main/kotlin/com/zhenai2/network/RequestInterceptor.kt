@@ -46,7 +46,7 @@ class RequestInterceptor(
             .addHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8")
             .addHeader("Accept", "application/json, text/plain, */*")
             .addHeader("X-Requested-With", "XMLHttpRequest")
-            .addHeader("Referer", "https://www.zhenai.com/")
+            .addHeader("Referer", "https://api.zhenai.com/")
             .addHeader("User-Agent", ua())
             .build()
 

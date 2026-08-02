@@ -1,6 +1,7 @@
 package com.zhenai2.network
 
 import com.zhenai2.common.Constants
+import kotlinx.coroutines.delay
 import okhttp3.ConnectionSpec
 import okhttp3.OkHttpClient
 import okhttp3.Protocol
@@ -8,18 +9,12 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.Collections
+import java.util.concurrent.CountDownLatch
 import java.util.concurrent.TimeUnit
 import javax.net.ssl.HostnameVerifier
-import javax.net.ssl.SSLContext
 
 /**
  * 网络客户端 —— Retrofit + OkHttp 单例
- *
- * 关键策略:
- * 1. 使用 [PlatformSSLSocketFactory] 阻止 OkHttp 过滤密码套件,
- *    保持 JA3 指纹与官方 App 一致。
- * 2. 限制协议为 HTTP/1.1,禁用 HTTP/2,匹配官方 App 的 ALPN 行为。
- * 3. 使用 H5 端点 (www.zhenai.com/api) 以降低 WAF 检测强度。
  */
 object NetworkClient {
 
@@ -27,8 +22,27 @@ object NetworkClient {
     @Volatile private var fingerprint: String? = null
     val cookieJar = ZhenaiCookieJar()
 
+    private val fingerprintLatch = CountDownLatch(1)
+
     /** 设置设备指纹(由 App 启动时异步采集后注入) */
-    fun setFingerprint(fp: String?) { fingerprint = fp }
+    fun setFingerprint(fp: String?) {
+        fingerprint = fp
+        fingerprintLatch.countDown()
+    }
+
+    /** 标记指纹采集完成(无论成功失败) */
+    fun markFingerprintDone() {
+        fingerprintLatch.countDown()
+    }
+
+    /** 等待指纹采集完成,超时15秒 */
+    suspend fun awaitFingerprint() {
+        try {
+            fingerprintLatch.await(16, TimeUnit.SECONDS)
+        } catch (_: InterruptedException) {
+            // 超时也继续,不阻塞启动流程
+        }
+    }
 
     val apiService: ApiService
         get() = api ?: synchronized(this) {
@@ -47,11 +61,8 @@ object NetworkClient {
             .addInterceptor(RequestInterceptor { fingerprint })
             .addInterceptor(FileLoggerInterceptor())
             .addInterceptor(logging)
-            // 使用 PlatformSSLSocketFactory 阻止 OkHttp 过滤密码套件
             .sslSocketFactory(platformSslFactory, platformSslFactory.trustManager())
-            // 限制为 HTTP/1.1,禁用 HTTP/2 (匹配官方 App 的 TLS ALPN)
             .protocols(Collections.singletonList(Protocol.HTTP_1_1))
-            // 宽松的 ConnectionSpec,让 PlatformSSLSocketFactory 接管密码套件选择
             .connectionSpecs(listOf(ConnectionSpec.COMPATIBLE_TLS))
             .hostnameVerifier(HostnameVerifier { _, _ -> true })
             .connectTimeout(15, TimeUnit.SECONDS)

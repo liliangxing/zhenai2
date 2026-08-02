@@ -37,12 +37,15 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private suspend fun checkLoginAndRoute() {
+        // 等待设备指纹采集完成,确保 checkLogin.do 请求携带 data 参数
+        FileLog.i("等待设备指纹采集完成...")
+        NetworkClient.awaitFingerprint()
+        FileLog.i("设备指纹采集完成, 开始检查登录态")
+
         if (AccountManager.isLogin) {
-            // 本地已有登录态,直接进主页
             routeToMain()
             return
         }
-        // 调 checkLogin.do 校验服务端登录态(对应原 App 启动检查)
         try {
             val resp = NetworkClient.apiService.checkLogin()
             if (resp.data?.isLogin == true) {
@@ -51,7 +54,6 @@ class SplashActivity : AppCompatActivity() {
                 routeToLogin()
             }
         } catch (e: Exception) {
-            // 网络异常默认进登录页
             FileLog.w("checkLogin.do 网络异常, 默认进登录页", e)
             routeToLogin()
         }

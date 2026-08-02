@@ -78,6 +78,7 @@ class App : Application() {
                 NetworkClient.setFingerprint(fp)
             } else {
                 FileLog.w("通盾指纹为空, 不注入data参数")
+                NetworkClient.markFingerprintDone()
             }
         }
     }

@@ -3,8 +3,10 @@ package com.zhenai2.network
 import com.zhenai2.common.Constants
 import okhttp3.Cookie
 import okhttp3.CookieJar
+import okhttp3.FormBody
 import okhttp3.HttpUrl
 import okhttp3.Interceptor
+import okhttp3.RequestBody
 import okhttp3.Response
 import java.util.concurrent.ConcurrentHashMap
 
@@ -13,13 +15,12 @@ import java.util.concurrent.ConcurrentHashMap
  *
  * 来源: zhenai-2.0.2.min.js 的 Z.ajax 封装
  * 注入内容:
- *   query: ua(User-Agent标识), _(时间戳防缓存), data(设备指纹screenPrint)
- *   降级: api_ip(降级到 tapi.zhenai.com 时携带)
+ *   GET 请求: ua/_/data 放入 URL query 参数
+ *   POST 请求: ua/_/data 放入 POST 请求体 (与 H5 行为一致)
  *   header: Content-Type=application/x-www-form-urlencoded
  *   cookie: sid/token(登录态) + TDC_itoken/_efmdata(风控,由CookieJar管理)
  *
  * 注意: data 参数仅在设备指纹采集完成后才注入，避免空指纹导致 WAF 428 拦截。
- *       设备指纹由 secdffinger.zhenai.com 采集，通过 NetworkClient.setFingerprint() 注入。
  */
 class RequestInterceptor(
     private val fingerprintProvider: () -> String?
@@ -27,28 +28,56 @@ class RequestInterceptor(
 
     override fun intercept(chain: Interceptor.Chain): Response {
         val original = chain.request()
-        val url = original.url
-
-        val builder = url.newBuilder()
-            .addQueryParameter("ua", ua())
-            .addQueryParameter("_", System.currentTimeMillis().toString())
-
-        // 只在指纹采集完成后注入 data 参数，避免空/假指纹被 WAF 拦截
         val fp = fingerprintProvider()
-        if (fp != null) {
-            builder.addQueryParameter("data", fp)
+        val timestamp = System.currentTimeMillis().toString()
+
+        val request = if (original.method == "POST" && original.body != null) {
+            // POST 请求: 公共参数放入请求体 (与 H5 Z.ajax 行为一致)
+            val newUrl = original.url.newBuilder()
+                .addQueryParameter("_", timestamp)
+                .build()
+
+            // 读取原始表单字段
+            val originalBody = original.body!!
+            val formBuilder = FormBody.Builder()
+            if (originalBody is FormBody) {
+                for (i in 0 until originalBody.size) {
+                    formBuilder.add(originalBody.name(i), originalBody.value(i))
+                }
+            }
+            // 添加公共参数到请求体
+            formBuilder.add("ua", ua())
+            if (fp != null) {
+                formBuilder.add("data", fp)
+            }
+
+            original.newBuilder()
+                .url(newUrl)
+                .post(formBuilder.build())
+                .addHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8")
+                .addHeader("Accept", "application/json, text/plain, */*")
+                .addHeader("X-Requested-With", "XMLHttpRequest")
+                .addHeader("Referer", "https://www.zhenai.com/")
+                .addHeader("User-Agent", ua())
+                .build()
+        } else {
+            // GET 请求: 公共参数放入 URL query
+            val builder = original.url.newBuilder()
+                .addQueryParameter("ua", ua())
+                .addQueryParameter("_", timestamp)
+            if (fp != null) {
+                builder.addQueryParameter("data", fp)
+            }
+
+            original.newBuilder()
+                .url(builder.build())
+                .addHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8")
+                .addHeader("Accept", "application/json, text/plain, */*")
+                .addHeader("X-Requested-With", "XMLHttpRequest")
+                .addHeader("Referer", "https://www.zhenai.com/")
+                .addHeader("User-Agent", ua())
+                .build()
         }
-
-        val newUrl = builder.build()
-
-        val request = original.newBuilder()
-            .url(newUrl)
-            .addHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8")
-            .addHeader("Accept", "application/json, text/plain, */*")
-            .addHeader("X-Requested-With", "XMLHttpRequest")
-            .addHeader("Referer", "https://www.zhenai.com/")
-            .addHeader("User-Agent", ua())
-            .build()
 
         return chain.proceed(request)
     }

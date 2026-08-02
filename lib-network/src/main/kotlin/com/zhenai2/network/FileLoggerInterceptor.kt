@@ -33,6 +33,13 @@ class FileLoggerInterceptor : Interceptor {
         sb.appendLine("Method : ${request.method}")
         sb.appendLine("URL    : ${request.url}")
 
+        // 输出到 FileLog: 完整 URL 含 query 参数,确认 data 参数是否存在
+        val urlStr = request.url.toString()
+        val hasData = urlStr.contains("data=") || (request.body != null && runCatching {
+            val buffer = Buffer(); request.body!!.writeTo(buffer); buffer.readUtf8().contains("data=")
+        }.getOrDefault(false))
+        FileLog.i("REQUEST ${request.method} ${request.url.encodedPath} | data参数=${if (hasData) "有" else "无"}")
+
         // 请求头
         sb.appendLine("Headers:")
         for (i in 0 until request.headers.size) {

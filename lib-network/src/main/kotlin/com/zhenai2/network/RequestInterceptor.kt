@@ -6,7 +6,6 @@ import okhttp3.CookieJar
 import okhttp3.FormBody
 import okhttp3.HttpUrl
 import okhttp3.Interceptor
-import okhttp3.RequestBody
 import okhttp3.Response
 import java.util.concurrent.ConcurrentHashMap
 
@@ -31,15 +30,15 @@ class RequestInterceptor(
         val fp = fingerprintProvider()
         val timestamp = System.currentTimeMillis().toString()
 
-        val request = if (original.method == "POST" && original.body != null) {
+        val request = if (original.method == "POST") {
             // POST 请求: 公共参数放入请求体 (与 H5 Z.ajax 行为一致)
             val newUrl = original.url.newBuilder()
                 .addQueryParameter("_", timestamp)
                 .build()
 
-            // 读取原始表单字段
-            val originalBody = original.body!!
+            // 读取原始表单字段(可能为null,如 checkLogin.do 等无参POST)
             val formBuilder = FormBody.Builder()
+            val originalBody = original.body
             if (originalBody is FormBody) {
                 for (i in 0 until originalBody.size) {
                     formBuilder.add(originalBody.name(i), originalBody.value(i))
@@ -57,6 +56,7 @@ class RequestInterceptor(
                 .addHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8")
                 .addHeader("Accept", "application/json, text/plain, */*")
                 .addHeader("X-Requested-With", "XMLHttpRequest")
+                .addHeader("Origin", "https://www.zhenai.com")
                 .addHeader("Referer", "https://www.zhenai.com/")
                 .addHeader("User-Agent", ua())
                 .build()
@@ -74,6 +74,7 @@ class RequestInterceptor(
                 .addHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8")
                 .addHeader("Accept", "application/json, text/plain, */*")
                 .addHeader("X-Requested-With", "XMLHttpRequest")
+                .addHeader("Origin", "https://www.zhenai.com")
                 .addHeader("Referer", "https://www.zhenai.com/")
                 .addHeader("User-Agent", ua())
                 .build()

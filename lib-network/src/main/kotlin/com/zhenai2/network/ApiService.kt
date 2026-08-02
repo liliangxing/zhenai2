@@ -1,9 +1,7 @@
 package com.zhenai2.network
 
-import retrofit2.http.Body
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
-import retrofit2.http.GET
 import retrofit2.http.POST
 
 /**
@@ -26,21 +24,21 @@ interface ApiService {
     // ============ 系统/启动 ============
 
     /** App 全局配置(含 interceptList 拦截策略) */
-    @GET("system/appConfig.do")
+    @POST("system/appConfig.do")
     suspend fun appConfig(): ApiResponse<AppConfig>
 
     /** 检查当前会话是否已登录 */
-    @GET("login/checkLogin.do")
+    @POST("login/checkLogin.do")
     suspend fun checkLogin(): ApiResponse<LoginStatus>
 
     /** 登录页配置(是否需验证码/腾讯滑块) */
-    @GET("system/getConfigureInfo.do")
+    @POST("system/getConfigureInfo.do")
     suspend fun getConfigureInfo(): ApiResponse<LoginConfig>
 
     // ============ 登录 ============
 
     /** 获取腾讯验证码 AppId(滑块/拼图) */
-    @GET("login/getGeetestCaptcha.do")
+    @POST("login/getGeetestCaptcha.do")
     suspend fun getGeetestCaptcha(): ApiResponse<CaptchaConfig>
 
     /** 账号密码登录

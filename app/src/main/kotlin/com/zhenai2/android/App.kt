@@ -2,13 +2,10 @@ package com.zhenai2.android
 
 import android.app.Application
 import android.content.Context
-import android.os.Build
-import android.provider.Settings
 import com.alibaba.android.arouter.launcher.ARouter
 import com.zhenai2.common.AccountManager
 import com.zhenai2.common.FileLog
 import com.zhenai2.network.NetworkClient
-import java.security.MessageDigest
 
 /**
  * Application 入口
@@ -25,7 +22,6 @@ class App : Application() {
     override fun attachBaseContext(base: Context) {
         super.attachBaseContext(base)
         try {
-            // 原 App 用 MultiDex(业务量大),这里保留
             androidx.multidex.MultiDex.install(this)
         } catch (e: Throwable) {
             FileLog.e("MultiDex.install 失败", e)
@@ -36,18 +32,17 @@ class App : Application() {
         super.onCreate()
         instance = this
 
-        // 0. 闪退日志采集 —— 最先安装,确保后续初始化任何崩溃都能记录
-        //    写入 /sdcard/douyinguanjia/Log/zhenai2.log
+        // 0. 闪退日志采集
         CrashHandler.get().install(this)
 
-        // 1. 账号管理初始化(对应原 App Cookie: sid/token)
+        // 1. 账号管理初始化
         try {
             AccountManager.init(this)
         } catch (e: Throwable) {
             FileLog.e("AccountManager.init 失败", e)
         }
 
-        // 2. ARouter 初始化(原 App 使用 ARouter 路由,约 380 条内部路由)
+        // 2. ARouter 初始化
         try {
             ARouter.openLog()
             ARouter.openDebug()
@@ -56,50 +51,34 @@ class App : Application() {
             FileLog.e("ARouter.init 失败", e)
         }
 
-        // 3. 网络层初始化
-        //    设备指纹(secdffinger)需异步采集,此处先置空,采集完成后注入
-        //    对应原 App 的 Cr() 函数通过 secdffinger.zhenai.com 生成 screenPrint
+        // 3. 网络层初始化(指纹先置空,采集后注入)
         try {
             NetworkClient.setFingerprint(null)
         } catch (e: Throwable) {
             FileLog.e("NetworkClient.setFingerprint 失败", e)
         }
 
-        // 4. 异步采集设备指纹(对应原 App 的 Cr())
-        //    从 secdffinger.zhenai.com 获取 screenPrint,成功后注入 NetworkClient
+        // 4. 异步采集通盾设备指纹(对应原 App 的 Cr())
+        //    WebView 加载 apjs.html,通盾 SDK 采集 Canvas/WebGL 指纹生成 token
+        //    成功后注入 NetworkClient,后续请求 data 参数携带 screenPrint=<token>
         collectDeviceFingerprint()
 
         FileLog.i("App.onCreate 完成, 初始化全部成功")
     }
 
     /**
-     * 异步采集设备指纹
+     * 异步采集通盾设备指纹
      *
-     * 原 App 通过 WebView 加载 secdffinger.zhenai.com 的 JS 生成 screenPrint。
-     * 这里简化实现: 生成基于设备标识的 MD5 哈希作为设备指纹。
-     * 指纹格式: screenPrint=<md5_hash>
-     *
-     * 采集成功后注入 NetworkClient,后续请求的 data 参数将携带指纹。
+     * 原 App 通过 WebView 加载 assets/apjs.html（通盾 SDK），
+     * 采集设备指纹生成 screenPrint token，注入到 NetworkClient。
      */
     private fun collectDeviceFingerprint() {
-        Thread {
-            try {
-                val androidId = Settings.Secure.getString(
-                    contentResolver, Settings.Secure.ANDROID_ID
-                ) ?: "unknown"
-                val deviceInfo = "$androidId|${Build.MODEL}|${Build.MANUFACTURER}|${Build.VERSION.SDK_INT}"
-                val md5 = MessageDigest.getInstance("MD5")
-                val digest = md5.digest(deviceInfo.toByteArray())
-                val fp = digest.joinToString("") { "%02x".format(it) }
+        FingerprintCollector().collect(this) { fp ->
+            if (fp.isNotEmpty()) {
                 NetworkClient.setFingerprint(fp)
-                FileLog.i("设备指纹采集成功, screenPrint=$fp")
-            } catch (e: Throwable) {
-                FileLog.e("设备指纹采集失败", e)
+            } else {
+                FileLog.w("通盾指纹为空, 不注入data参数")
             }
-        }.apply {
-            // 后台线程,降低优先级,不阻塞主线程
-            priority = Thread.MIN_PRIORITY
-            start()
         }
     }
 

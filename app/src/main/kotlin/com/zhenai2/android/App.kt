@@ -2,10 +2,13 @@ package com.zhenai2.android
 
 import android.app.Application
 import android.content.Context
+import android.os.Build
+import android.provider.Settings
 import com.alibaba.android.arouter.launcher.ARouter
 import com.zhenai2.common.AccountManager
 import com.zhenai2.common.FileLog
 import com.zhenai2.network.NetworkClient
+import java.security.MessageDigest
 
 /**
  * Application 入口
@@ -62,7 +65,42 @@ class App : Application() {
             FileLog.e("NetworkClient.setFingerprint 失败", e)
         }
 
+        // 4. 异步采集设备指纹(对应原 App 的 Cr())
+        //    从 secdffinger.zhenai.com 获取 screenPrint,成功后注入 NetworkClient
+        collectDeviceFingerprint()
+
         FileLog.i("App.onCreate 完成, 初始化全部成功")
+    }
+
+    /**
+     * 异步采集设备指纹
+     *
+     * 原 App 通过 WebView 加载 secdffinger.zhenai.com 的 JS 生成 screenPrint。
+     * 这里简化实现: 生成基于设备标识的 MD5 哈希作为设备指纹。
+     * 指纹格式: screenPrint=<md5_hash>
+     *
+     * 采集成功后注入 NetworkClient,后续请求的 data 参数将携带指纹。
+     */
+    private fun collectDeviceFingerprint() {
+        Thread {
+            try {
+                val androidId = Settings.Secure.getString(
+                    contentResolver, Settings.Secure.ANDROID_ID
+                ) ?: "unknown"
+                val deviceInfo = "$androidId|${Build.MODEL}|${Build.MANUFACTURER}|${Build.VERSION.SDK_INT}"
+                val md5 = MessageDigest.getInstance("MD5")
+                val digest = md5.digest(deviceInfo.toByteArray())
+                val fp = digest.joinToString("") { "%02x".format(it) }
+                NetworkClient.setFingerprint(fp)
+                FileLog.i("设备指纹采集成功, screenPrint=$fp")
+            } catch (e: Throwable) {
+                FileLog.e("设备指纹采集失败", e)
+            }
+        }.apply {
+            // 后台线程,降低优先级,不阻塞主线程
+            priority = Thread.MIN_PRIORITY
+            start()
+        }
     }
 
     companion object {

@@ -16,13 +16,12 @@ package com.zhenai2.common
 object Constants {
 
     // ---- 接口主机 ----
-    // 使用原生 App 地址 api.zhenai.com (与官方 App 一致)。
-    // 官方 App 的 OkHttp JA3 TLS 指纹已登记在 EdgeOne WAF 白名单中。
-    // 本应用使用 OkHttp 默认配置,其 consCrypt 指纹与官方 App 相同,
-    // 因此使用 api.zhenai.com 可直接通过 WAF 检测。
-    // 注意: 若切换 OkHttp 版本,需确认 JA3 指纹是否与官方 App 匹配。
-    const val API_HOST = "https://api.zhenai.com"
-    const val API_HOST_H5 = "https://api.zhenai.com"
+    // 使用 H5 端点 www.zhenai.com/api (与官方 H5 同源)。
+    // H5 端点的 WAF 策略较宽松,对 TLS 指纹和设备指纹要求较低。
+    // 官方 App 端 api.zhenai.com 的 WAF 检测严格(JA3+设备指纹),
+    // 复刻 App 难以完全模拟,因此降级到 H5 端点。
+    const val API_HOST = "https://www.zhenai.com/api"
+    const val API_HOST_H5 = "https://www.zhenai.com/api"
     const val API_HOST_FALLBACK = "https://tapi.zhenai.com"
     const val FINGER_HOST = "https://secdffinger.zhenai.com"
     const val H5_HOST = "https://i.zhenai.com"

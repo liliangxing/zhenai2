@@ -8,7 +8,9 @@ import com.zhenai2.common.AccountManager
 import com.zhenai2.common.FileLog
 import com.zhenai2.common.router.RouterPath
 import com.zhenai2.network.NetworkClient
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 /**
  * 启动页 —— 原 App 入口
@@ -37,9 +39,11 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private suspend fun checkLoginAndRoute() {
-        // 等待设备指纹采集完成,确保 checkLogin.do 请求携带 data 参数
+        // 等待设备指纹采集完成,在IO线程等待避免阻塞主线程(WebView需要主线程)
         FileLog.i("等待设备指纹采集完成...")
-        NetworkClient.awaitFingerprint()
+        withContext(Dispatchers.IO) {
+            NetworkClient.awaitFingerprint()
+        }
         FileLog.i("设备指纹采集完成, 开始检查登录态")
 
         if (AccountManager.isLogin) {

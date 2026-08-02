@@ -83,8 +83,15 @@ class RequestInterceptor(
         return chain.proceed(request)
     }
 
+    /**
+     * User-Agent —— 必须与 FingerprintCollector 中 WebView 的 UA 完全一致
+     *
+     * 通盾指纹的 os 字段为 "web"(因通过 WebView 采集),
+     * 若 User-Agent 声明为 Android App, WAF 交叉验证不匹配会返回 428。
+     * 改用 Chrome 浏览器 UA, 使指纹类型(os:web)与请求 UA 一致。
+     */
     private fun ua(): String =
-        "zhenai/9.29.5 (Android ${android.os.Build.VERSION.RELEASE}; ${android.os.Build.MODEL})"
+        "Mozilla/5.0 (Linux; Android ${android.os.Build.VERSION.RELEASE}; ${android.os.Build.MODEL}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Mobile Safari/537.36"
 }
 
 /**

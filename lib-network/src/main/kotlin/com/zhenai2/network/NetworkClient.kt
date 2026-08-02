@@ -10,11 +10,9 @@ import java.util.concurrent.TimeUnit
 /**
  * 网络客户端 —— Retrofit + OkHttp 单例
  *
- * 重要: 本应用使用 OkHttp 默认的 consCrypt TLS 实现。
- * 珍爱网 api.zhenai.com 的 EdgeOne WAF 通过 JA3 TLS 指纹识别客户端,
- * 官方 App 的 OkHttp 指纹已登记。本应用使用 OkHttp 默认配置,
- * 其 JA3 指纹与官方 App 一致(均为 OkHttp 标准 consCrypt 指纹)。
- * 若仍被拦截,需检查 OkHttp 版本是否与官方 App 一致。
+ * 关键策略: 使用 [PlatformSSLSocketFactory] 阻止 OkHttp 的 ConnectionSpec
+ * 过滤密码套件,让底层 Socket 使用平台默认的 consCrypt 完整密码套件集。
+ * 这样 JA3 指纹与官方 App 一致,可通过 EdgeOne WAF 检测。
  */
 object NetworkClient {
 
@@ -35,11 +33,14 @@ object NetworkClient {
             level = HttpLoggingInterceptor.Level.BODY
         }
 
+        val platformSslFactory = PlatformSSLSocketFactory()
+
         val client = OkHttpClient.Builder()
             .cookieJar(cookieJar)
             .addInterceptor(RequestInterceptor { fingerprint })
             .addInterceptor(FileLoggerInterceptor())
             .addInterceptor(logging)
+            .sslSocketFactory(platformSslFactory, platformSslFactory.trustManager())
             .connectTimeout(15, TimeUnit.SECONDS)
             .readTimeout(20, TimeUnit.SECONDS)
             .writeTimeout(20, TimeUnit.SECONDS)

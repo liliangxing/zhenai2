@@ -23,7 +23,7 @@ import com.zhenai2.common.FileLog
  * 4. success 回调调用 window.TDJSSDK.getinfo(token)
  * 5. JavascriptInterface 接收 token，注入 NetworkClient
  *
- * 指纹格式: screenPrint=<token>
+ * 指纹格式: 直接使用通盾返回的token作为data参数值
  */
 class FingerprintCollector {
 
@@ -40,7 +40,7 @@ class FingerprintCollector {
         if (done) return
         done = true
         FileLog.i("通盾指纹采集成功: ${if (result.length > 80) result.take(80) + "..." else result}")
-        callback?.invoke("screenPrint=$result")
+        callback?.invoke(result)
 
         // 清理 WebView（必须在主线程）
         Handler(Looper.getMainLooper()).post {
@@ -65,6 +65,8 @@ class FingerprintCollector {
                 wv.settings.domStorageEnabled = true
                 wv.settings.databaseEnabled = true
                 wv.settings.allowFileAccess = true
+                wv.settings.allowContentAccess = true
+                wv.settings.mixedContentMode = android.webkit.WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
 
                 // 注入 JS 接口: window.TDJSSDK.getinfo(result)
                 wv.addJavascriptInterface(this@FingerprintCollector, "TDJSSDK")
@@ -77,9 +79,9 @@ class FingerprintCollector {
                     }
                 }
 
-                wv.loadUrl("file:///android_asset/apjs.html")
+                wv.loadUrl("file:///android_asset/fingerprint.html")
                 webView = wv
-                FileLog.i("开始加载通盾指纹SDK (apjs.html)")
+                FileLog.i("开始加载通盾指纹SDK (fingerprint.html + secdfinger.zhenai.com)")
 
                 // 15秒超时保护
                 Handler(Looper.getMainLooper()).postDelayed({

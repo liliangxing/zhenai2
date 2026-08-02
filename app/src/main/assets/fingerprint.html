@@ -1,0 +1,29 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <script>
+        // 通盾SDK配置 - 与珍爱网H5页面完全一致
+        window._fmOpt = {
+            partner: "zhenai",
+            appName: "pcPrint",
+            token: "zhenai-" + new Date().getTime() + "-" + Math.random().toString(16).substr(2),
+            fpHost: "https://secdfinger.zhenai.com",
+            fmb: true,
+            cub: true,
+            timeout: 5000,
+            success: function(result) {
+                // 通盾SDK采集成功,回传给原生层
+                window.TDJSSDK.getinfo(result);
+            }
+        };
+        // 动态加载通盾fm.js
+        var fmScript = document.createElement("script");
+        fmScript.type = "text/javascript";
+        fmScript.async = true;
+        fmScript.src = window._fmOpt.fpHost + "/static/fm.js?ver=0.1&t=" + ((new Date().getTime() / 3600000).toFixed(0));
+        document.head.appendChild(fmScript);
+    </script>
+</head>
+<body>
+</body>
+</html>

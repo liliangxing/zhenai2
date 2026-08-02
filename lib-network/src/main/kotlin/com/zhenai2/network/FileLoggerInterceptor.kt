@@ -1,8 +1,8 @@
 package com.zhenai2.network
 
 import android.os.Environment
+import com.zhenai2.common.FileLog
 import okhttp3.Interceptor
-import okhttp3.MediaType
 import okhttp3.Response
 import okhttp3.ResponseBody
 import okio.Buffer
@@ -15,6 +15,9 @@ import java.util.Locale
  * 文件日志拦截器 —— 将 API 请求的地址、入参、返回结果写入 SD 卡文件
  *
  * 日志路径: /sdcard/douyinguanjia/Log/zhenai2.log
+ *
+ * 诊断模式: 对非 2xx 响应(尤其 428 WAF 拦截)记录完整响应头和响应体,
+ * 并通过 FileLog 输出摘要,便于用户在日志中直接看到 WAF 返回内容。
  */
 class FileLoggerInterceptor : Interceptor {
 
@@ -30,11 +33,10 @@ class FileLoggerInterceptor : Interceptor {
         sb.appendLine("Method : ${request.method}")
         sb.appendLine("URL    : ${request.url}")
 
-        // 请求头（排除敏感信息）
+        // 请求头
         sb.appendLine("Headers:")
         for (i in 0 until request.headers.size) {
             val name = request.headers.name(i)
-            // 隐藏敏感 header 的值
             val value = if (name.equals("Cookie", ignoreCase = true) ||
                 name.equals("Authorization", ignoreCase = true)
             ) {
@@ -70,30 +72,60 @@ class FileLoggerInterceptor : Interceptor {
             sb.appendLine("Code   : ${response.code}")
             sb.appendLine("Message: ${response.message}")
 
+            // 完整记录响应头（诊断 WAF 关键信息）
+            sb.appendLine("Response-Headers:")
+            for (i in 0 until response.headers.size) {
+                sb.appendLine("  ${response.headers.name(i)}: ${response.headers.value(i)}")
+            }
+
             // 读取响应体（不破坏原始流）
             val responseBody = response.body
-            if (responseBody != null) {
+            val contentStr = if (responseBody != null) {
                 val contentType = responseBody.contentType()
-                val contentStr = responseBody.string()
                 sb.appendLine("Content-Type: $contentType")
+                responseBody.string()
+            } else {
+                ""
+            }
+
+            val isError = response.code !in 200..299
+
+            if (isError) {
+                // 错误响应: 完整记录，不截断
+                sb.appendLine("Body (full, error response):")
+                sb.appendLine(contentStr)
+                sb.appendLine()
+
+                // 同时通过 FileLog 输出摘要，确保用户可见
+                FileLog.w("HTTP ${response.code} ${response.message} | URL=${request.url.encodedPath}")
+                FileLog.w("响应头摘要:")
+                for (i in 0 until response.headers.size) {
+                    FileLog.w("  ${response.headers.name(i)}: ${response.headers.value(i)}")
+                }
+                val bodyPreview = if (contentStr.length > 2000) contentStr.take(2000) + "..." else contentStr
+                FileLog.w("响应体:\n$bodyPreview")
+            } else {
                 sb.appendLine("Body:")
                 sb.appendLine(if (contentStr.length > 4096) contentStr.take(4096) + "..." else contentStr)
                 sb.appendLine()
+            }
 
-                // 重建响应体（因为 string() 只能调用一次）
-                val newBody = ResponseBody.create(contentType, contentStr)
-                writeLog(sb.toString())
+            // 重建响应体
+            val newBody = if (responseBody != null) {
+                ResponseBody.create(responseBody.contentType(), contentStr)
+            } else {
+                null
+            }
+            writeLog(sb.toString())
 
+            if (newBody != null) {
                 response.newBuilder().body(newBody).build()
             } else {
-                sb.appendLine("Body: [empty]")
-                sb.appendLine()
-                writeLog(sb.toString())
                 response
             }
         } catch (e: Exception) {
             sb.appendLine("=== [$timestamp] ERROR ===")
-            sb.appendLine("Exception: ${e.message}")
+            sb.appendLine("Exception: ${e.javaClass.name}: ${e.message}")
             sb.appendLine()
             writeLog(sb.toString())
             throw e

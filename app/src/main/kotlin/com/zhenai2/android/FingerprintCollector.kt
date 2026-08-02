@@ -97,9 +97,9 @@ class FingerprintCollector {
                 // 启用 WebView Cookie 持久化
                 val cookieManager = CookieManager.getInstance()
                 cookieManager.setAcceptCookie(true)
-                cookieManager.setAcceptThirdPartyCookies(null, true)
 
                 val wv = WebView(context)
+                cookieManager.setAcceptThirdPartyCookies(wv, true)
                 wv.settings.javaScriptEnabled = true
                 wv.settings.domStorageEnabled = true
                 wv.settings.databaseEnabled = true

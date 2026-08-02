@@ -3,12 +3,16 @@ package com.zhenai2.android
 import android.content.Context
 import android.os.Handler
 import android.os.Looper
+import android.webkit.CookieManager
 import android.webkit.JavascriptInterface
 import android.webkit.WebResourceError
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import com.zhenai2.common.FileLog
+import com.zhenai2.network.NetworkClient
+import okhttp3.Cookie
+import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
 
 /**
  * 通盾设备指纹采集器
@@ -16,12 +20,8 @@ import com.zhenai2.common.FileLog
  * 关键: WebView 必须加载 https://www.zhenai.com/ 以确保 origin 一致,
  * 否则通盾 SDK 采集的指纹绑定了错误的 origin, 后端验证不通过返回 428。
  *
- * 流程:
- * 1. WebView 加载 https://www.zhenai.com/
- * 2. 页面加载完成后, 注入通盾 SDK 配置和脚本
- * 3. 通盾 SDK 从 secdfinger.zhenai.com 加载 fm.js, 采集指纹
- * 4. 指纹采集成功后调用 window.TDJSSDK.getinfo(token)
- * 5. JavascriptInterface 接收 token, 注入 NetworkClient
+ * 同时: WebView 加载页面时 WAF 会设置风控 Cookie,
+ * 需要同步到 OkHttp CookieJar, 否则 API 请求缺少风控 Cookie 仍被 428。
  */
 class FingerprintCollector {
 
@@ -34,6 +34,10 @@ class FingerprintCollector {
         if (done) return
         done = true
         FileLog.i("通盾指纹采集成功: ${if (result.length > 80) result.take(80) + "..." else result}")
+
+        // 同步 WebView Cookie 到 OkHttp CookieJar
+        syncCookies()
+
         callback?.invoke(result)
 
         Handler(Looper.getMainLooper()).post {
@@ -42,10 +46,59 @@ class FingerprintCollector {
         }
     }
 
+    /**
+     * 同步 WebView 的 Cookie 到 OkHttp CookieJar
+     * WAF 在页面加载时可能设置了风控 Cookie, API 请求也需要携带
+     */
+    private fun syncCookies() {
+        try {
+            val cookieManager = CookieManager.getInstance()
+            val urls = listOf(
+                "https://www.zhenai.com/",
+                "https://i.zhenai.com/",
+                "https://api.zhenai.com/"
+            )
+            for (urlStr in urls) {
+                val cookieStr = cookieManager.getCookie(urlStr)
+                if (cookieStr.isNullOrEmpty()) continue
+
+                val httpUrl = urlStr.toHttpUrlOrNull() ?: continue
+                FileLog.i("同步Cookie: $urlStr -> $cookieStr")
+
+                // 解析 cookie 字符串 "k1=v1; k2=v2" 为 OkHttp Cookie
+                val cookies = cookieStr.split(";").mapNotNull { part ->
+                    val trimmed = part.trim()
+                    if (trimmed.isEmpty()) return@mapNotNull null
+                    val eqIdx = trimmed.indexOf('=')
+                    if (eqIdx < 0) return@mapNotNull null
+                    val name = trimmed.substring(0, eqIdx).trim()
+                    val value = trimmed.substring(eqIdx + 1).trim()
+                    try {
+                        Cookie.Builder()
+                            .name(name)
+                            .value(value)
+                            .domain(httpUrl.host)
+                            .build()
+                    } catch (_: Exception) { null }
+                }
+                if (cookies.isNotEmpty()) {
+                    NetworkClient.cookieJar.saveFromResponse(httpUrl, cookies)
+                }
+            }
+        } catch (e: Throwable) {
+            FileLog.e("同步Cookie失败", e)
+        }
+    }
+
     fun collect(context: Context, cb: (String) -> Unit) {
         callback = cb
         Handler(Looper.getMainLooper()).post {
             try {
+                // 启用 WebView Cookie 持久化
+                val cookieManager = CookieManager.getInstance()
+                cookieManager.setAcceptCookie(true)
+                cookieManager.setAcceptThirdPartyCookies(null, true)
+
                 val wv = WebView(context)
                 wv.settings.javaScriptEnabled = true
                 wv.settings.domStorageEnabled = true
@@ -102,6 +155,8 @@ class FingerprintCollector {
                     if (!done) {
                         FileLog.w("通盾指纹采集超时(20s)")
                         done = true
+                        // 超时也同步一次Cookie
+                        syncCookies()
                         cb("")
                         try { wv.destroy() } catch (_: Throwable) {}
                         webView = null

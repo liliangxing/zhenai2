@@ -24,10 +24,12 @@ object NetworkClient {
 
     private val fingerprintLatch = CountDownLatch(1)
 
-    /** 设置设备指纹(由 App 启动时异步采集后注入) */
+    /** 设置设备指纹(由 App 启动时异步采集后注入), null不触发countDown */
     fun setFingerprint(fp: String?) {
         fingerprint = fp
-        fingerprintLatch.countDown()
+        if (fp != null) {
+            fingerprintLatch.countDown()
+        }
     }
 
     /** 标记指纹采集完成(无论成功失败) */

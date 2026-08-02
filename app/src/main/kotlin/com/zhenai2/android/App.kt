@@ -51,12 +51,8 @@ class App : Application() {
             FileLog.e("ARouter.init 失败", e)
         }
 
-        // 3. 网络层初始化(指纹先置空,采集后注入)
-        try {
-            NetworkClient.setFingerprint(null)
-        } catch (e: Throwable) {
-            FileLog.e("NetworkClient.setFingerprint 失败", e)
-        }
+        // 3. 网络层初始化(指纹由FingerprintCollector采集后注入,不在此处设置)
+        //    NetworkClient.fingerprint 默认为null, RequestInterceptor只在非null时添加data参数
 
         // 4. 异步采集通盾设备指纹(对应原 App 的 Cr())
         //    WebView 加载 apjs.html,通盾 SDK 采集 Canvas/WebGL 指纹生成 token
